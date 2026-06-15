@@ -77,46 +77,43 @@
             color: #2c2c2c;
         }
         
-        .image-upload-area {
+        .main-image-area {
             width: 100%;
-            max-width: 420px;
-            height: 260px;
-            margin: 20px auto 30px;
-            border: 2px dashed #c9b89a;
+            max-width: 480px;
+            height: 280px;
+            margin: 20px auto 35px;
+            border: 3px solid #d4c3a3;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            position: relative;
             overflow: hidden;
+            position: relative;
             background: #f4e9d8;
-            transition: all 0.2s;
+            cursor: pointer;
         }
         
-        .image-upload-area:hover {
-            border-color: #a88c5f;
-            background: #f0e4d0;
-        }
-        
-        .image-upload-area img {
+        .main-image-area img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: none;
-        }
-        
-        .upload-placeholder {
-            text-align: center;
-            color: #8a7d65;
-            font-size: 15px;
-        }
-        
-        .upload-placeholder span {
             display: block;
-            margin-top: 8px;
-            font-size: 13px;
-            opacity: 0.7;
+        }
+        
+        .upload-prompt {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #8a7d65;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .upload-prompt:hover {
+            background: rgba(212, 195, 163, 0.1);
         }
         
         .internal-thought {
@@ -156,22 +153,12 @@
             color: #8a7d65;
         }
         
-        .change-image-btn {
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: rgba(44, 44, 44, 0.85);
-            color: white;
-            border: none;
-            padding: 6px 14px;
-            font-size: 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            display: none;
-        }
-        
-        .image-upload-area:hover .change-image-btn {
-            display: block;
+        .locked-notice {
+            text-align: center;
+            font-size: 13px;
+            color: #8a7d65;
+            margin-top: 10px;
+            font-style: italic;
         }
     </style>
 </head>
@@ -184,44 +171,36 @@
     <div class="book-container">
         <div class="book" id="book">
             
-            <!-- Page 1: Part 1 -->
+            <!-- Page 1: Title + Single Image Upload -->
             <div class="page" id="page1" style="z-index: 5;">
                 <div class="page-content">
-                    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 38px; text-align: center; margin-bottom: 8px;">Love is Weird</h1>
-                    <p style="text-align:center; font-style:italic; margin-bottom:25px; color:#666;">Episode 1</p>
+                    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 42px; text-align: center; margin-bottom: 10px;">Love is Weird</h1>
+                    <p style="text-align:center; font-style:italic; margin-bottom:30px; color:#666;">Episode 1</p>
                     
-                    <h2 class="part-title">Part 1: “The Checklist”</h2>
+                    <h2 class="part-title" style="text-align:center; border:none;">Main Reference Image</h2>
                     
-                    <!-- Image Upload Area -->
-                    <div class="image-upload-area" id="image-area-1" onclick="uploadImage(1)">
-                        <img id="preview-1" alt="Part 1 Image">
-                        <div class="upload-placeholder" id="placeholder-1">
-                            <strong>Click to upload image for Part 1</strong>
-                            <span>Recommended: Harper in the lab</span>
+                    <!-- SINGLE Image Upload Area -->
+                    <div class="main-image-area" id="main-image-area" onclick="uploadMainImage()">
+                        <img id="main-image-preview" style="display: none;" alt="Main Reference Image">
+                        <div class="upload-prompt" id="upload-prompt">
+                            <strong>Click here to upload the main image</strong>
+                            <span style="margin-top: 12px; font-size: 14px;">This image will be saved permanently for Episode 1</span>
                         </div>
-                        <button class="change-image-btn" onclick="event.stopImmediatePropagation(); uploadImage(1)">Change</button>
                     </div>
                     
-                    <p>The lab was quiet at this hour, the way Harper liked it...</p>
-                    <p class="internal-thought">*Better. That’s better...*</p>
+                    <p style="text-align: center; color: #666; font-style: italic; max-width: 500px; margin: 0 auto;">
+                        Once uploaded, this image cannot be changed. It will remain as the main visual for this episode.
+                    </p>
                 </div>
                 <div class="page-number">1 / 5</div>
             </div>
 
-            <!-- Page 2 -->
+            <!-- Page 2: Part 1 -->
             <div class="page" id="page2" style="display: none; z-index: 4;">
                 <div class="page-content">
-                    <h2 class="part-title">Part 1: “The Checklist” (continued)</h2>
-                    
-                    <div class="image-upload-area" id="image-area-2" onclick="uploadImage(2)">
-                        <img id="preview-2" alt="Part 2 Image">
-                        <div class="upload-placeholder" id="placeholder-2">
-                            <strong>Click to upload image</strong>
-                        </div>
-                        <button class="change-image-btn" onclick="event.stopImmediatePropagation(); uploadImage(2)">Change</button>
-                    </div>
-                    
-                    <p>She saved the file and headed for the elevator...</p>
+                    <h2 class="part-title">Part 1: “The Checklist”</h2>
+                    <p>The lab was quiet at this hour, the way Harper liked it...</p>
+                    <p class="internal-thought">*Better. That’s better...*</p>
                 </div>
                 <div class="page-number">2 / 5</div>
             </div>
@@ -230,16 +209,7 @@
             <div class="page" id="page3" style="display: none; z-index: 3;">
                 <div class="page-content">
                     <h2 class="part-title">Part 2: “The Chaos at Home”</h2>
-                    
-                    <div class="image-upload-area" id="image-area-3" onclick="uploadImage(3)">
-                        <img id="preview-3" alt="Part 3 Image">
-                        <div class="upload-placeholder" id="placeholder-3">
-                            <strong>Click to upload image for Part 2</strong>
-                        </div>
-                        <button class="change-image-btn" onclick="event.stopImmediatePropagation(); uploadImage(3)">Change</button>
-                    </div>
-                    
-                    <p>Harper’s key turned in the lock...</p>
+                    <p>Harper’s key turned in the lock with a familiar click...</p>
                 </div>
                 <div class="page-number">3 / 5</div>
             </div>
@@ -248,15 +218,6 @@
             <div class="page" id="page4" style="display: none; z-index: 2;">
                 <div class="page-content">
                     <h2 class="part-title">Part 3: “The Brief”</h2>
-                    
-                    <div class="image-upload-area" id="image-area-4" onclick="uploadImage(4)">
-                        <img id="preview-4" alt="Part 4 Image">
-                        <div class="upload-placeholder" id="placeholder-4">
-                            <strong>Click to upload image for Part 3</strong>
-                        </div>
-                        <button class="change-image-btn" onclick="event.stopImmediatePropagation(); uploadImage(4)">Change</button>
-                    </div>
-                    
                     <p>The camera found him from a distance...</p>
                 </div>
                 <div class="page-number">4 / 5</div>
@@ -288,46 +249,46 @@
     <script>
         let currentPage = 1;
         const totalPages = 5;
-        let currentUploadPage = null;
 
-        function loadSavedImages() {
-            for (let i = 1; i <= 4; i++) {
-                const savedImage = localStorage.getItem(`part${i}_image`);
-                if (savedImage) {
-                    const preview = document.getElementById(`preview-${i}`);
-                    const placeholder = document.getElementById(`placeholder-${i}`);
-                    
-                    if (preview && placeholder) {
-                        preview.src = savedImage;
-                        preview.style.display = 'block';
-                        placeholder.style.display = 'none';
-                    }
-                }
+        function loadMainImage() {
+            const savedImage = localStorage.getItem('episode1_main_image');
+            if (savedImage) {
+                const preview = document.getElementById('main-image-preview');
+                const prompt = document.getElementById('upload-prompt');
+                const area = document.getElementById('main-image-area');
+                
+                preview.src = savedImage;
+                preview.style.display = 'block';
+                prompt.style.display = 'none';
+                
+                area.style.cursor = 'default';
+                area.onclick = null;
             }
         }
 
-        function uploadImage(partNumber) {
-            currentUploadPage = partNumber;
+        function uploadMainImage() {
             document.getElementById('imageInput').click();
         }
 
         function handleImageUpload(event) {
             const file = event.target.files[0];
-            if (!file || !currentUploadPage) return;
+            if (!file) return;
 
             const reader = new FileReader();
             reader.onload = function(e) {
                 const base64Image = e.target.result;
-                localStorage.setItem(`part${currentUploadPage}_image`, base64Image);
+                localStorage.setItem('episode1_main_image', base64Image);
                 
-                const preview = document.getElementById(`preview-${currentUploadPage}`);
-                const placeholder = document.getElementById(`placeholder-${currentUploadPage}`);
+                const preview = document.getElementById('main-image-preview');
+                const prompt = document.getElementById('upload-prompt');
+                const area = document.getElementById('main-image-area');
                 
-                if (preview && placeholder) {
-                    preview.src = base64Image;
-                    preview.style.display = 'block';
-                    placeholder.style.display = 'none';
-                }
+                preview.src = base64Image;
+                preview.style.display = 'block';
+                prompt.style.display = 'none';
+                
+                area.style.cursor = 'default';
+                area.onclick = null;
             };
             reader.readAsDataURL(file);
             event.target.value = '';
@@ -384,7 +345,7 @@
 
         function init() {
             showPage(1);
-            loadSavedImages();
+            loadMainImage();
         }
 
         window.onload = init;
