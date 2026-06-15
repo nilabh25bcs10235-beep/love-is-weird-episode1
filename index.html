@@ -152,7 +152,7 @@
     <div class="book-container">
         <div class="book" id="book">
             
-            <!-- PAGE 1: Part 1 -->
+            <!-- PAGE 1: Part 1 (with image) -->
             <div class="page" id="page1" style="z-index: 5;">
                 <div class="page-content">
                     <h2 class="part-title">Part 1: “The Checklist”</h2>
@@ -239,18 +239,10 @@
                 <div class="page-number">1 / 5</div>
             </div>
 
-            <!-- PAGE 2: Part 2 (Correct Full Text) -->
+            <!-- PAGE 2: Part 2 (NO image) -->
             <div class="page" id="page2" style="z-index: 4;">
                 <div class="page-content">
                     <h2 class="part-title">Part 2: “The Chaos at Home”</h2>
-                    
-                    <div class="image-upload-area" id="img-area-2" onclick="uploadImage(2)">
-                        <img id="img-preview-2" alt="Part 2 Image">
-                        <div class="upload-placeholder" id="placeholder-2">
-                            <strong>Click to upload image for Part 2</strong><br>
-                            <span style="font-size:12px;"> (Locked after saving)</span>
-                        </div>
-                    </div>
                     
                     <p>Harper’s key turned in the lock with a familiar click.</p>
                     
@@ -381,7 +373,7 @@
         let currentUploadPart = null;
 
         function loadSavedImages() {
-            for (let i = 1; i <= 3; i++) {
+            for (let i = 1; i <= 1; i++) {  // Only Part 1 has image
                 const saved = localStorage.getItem('part' + i + '_image');
                 if (saved) {
                     const preview = document.getElementById('img-preview-' + i);
