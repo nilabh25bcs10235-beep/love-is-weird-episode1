@@ -335,11 +335,65 @@
                 <div class="page-number">2 / 5</div>
             </div>
 
-            <!-- PAGE 3: Part 3 Placeholder -->
-            <div class="page" id="page3" style="display: none; z-index: 3;">
+            <!-- PAGE 3: Part 3 (NO image) -->
+            <div class="page" id="page3" style="z-index: 3;">
                 <div class="page-content">
                     <h2 class="part-title">Part 3: “The Brief”</h2>
-                    <p>Coming soon...</p>
+                    
+                    <p>The camera found him from a distance, half a block back, like it had been tailing him for minutes.</p>
+                    
+                    <p>Kane Hale moved through the pulsing nightlife district with quiet certainty. Black tailored shirt open at the collar beneath a dark jacket, jeans cut clean, boots that didn’t scuff. He carried the subtle aura of someone who could be famous if he wanted to be — sharp lines, unreadable eyes, the kind of presence that made people glance twice without knowing why. He blended anyway. The neon and the crowd swallowed him whole.</p>
+                    
+                    <p>He reached the high-end strip club and stepped inside without hesitation.</p>
+                    
+                    <p>The interior hit like a fever dream. Dim colored lights washed everything in deep reds and shifting purples. On the central stage a woman moved slow and deliberate under shifting gels while other dancers — men and women — worked the floor and the poles in lazy, hypnotic rhythm. The bass thumped through the soles of shoes. Bars lined both walls, three deep with bodies. Girls and boys danced between tables. Laughter and shouted orders cut through the music.</p>
+                    
+                    <p>Kane cut straight through the crowd like it was water. A woman reached for his arm with a practiced smile; another leaned in close, lips near his ear. He didn’t slow. Didn’t look. The touches slid off him. He kept moving until he slipped through a staff-only door into the kitchen.</p>
+                    
+                    <p>Stainless steel and steam. The clatter of plates. At the back prep table stood Luis — short, stocky, older Mexican man with a weathered face and the tired eyes of someone who had seen too many of these nights. He straightened when Kane appeared.</p>
+                    
+                    <p>“Estás tarde otra vez, cabrón,” Luis said, voice low. “One of these days your late habits are going to get me killed. Come on.”</p>
+                    
+                    <p>He led Kane past the kitchen line into a narrow hallway and stopped at what looked like a heavy storage door. Titanium frame. Reinforced. Luis glanced up at the CCTV camera mounted in the corner. Kane stepped forward, looked directly at the lens, and spoke a short string of numbers and letters in a flat, even tone.</p>
+                    
+                    <p>The light on the camera blinked once. The lock clicked.</p>
+                    
+                    <p>They stepped into the secure room.</p>
+                    
+                    <p>It was soundproofed, low-lit, and already occupied. Four men stood around a long black table. The screens on the wall glowed with satellite imagery, thermal overlays, and building layouts.</p>
+                    
+                    <p>The narrator’s eye moved across them the way someone who had worked with them before would:</p>
+                    
+                    <p>The breacher — thick through the chest and shoulders, ex-Special Forces, the kind of man who could shoulder a door off its hinges and still move quiet.</p>
+                    <p>The overwatch — lean, always chewing gum, eyes that never stopped scanning even when he was standing still.</p>
+                    <p>The exfil and logistics man — precise, calm, the one who lived and died by timing windows and clean routes.</p>
+                    <p>The fourth — communications and support, quiet, already running a final systems check on encrypted tablets.</p>
+                    
+                    <p>Kane stopped at the head of the table. No greetings. He tapped the central screen.</p>
+                    
+                    <p>“Contract 47-Alpha. Target compound. We go in quiet, we take the regional commander alive. Everyone else inside is a witness. No screams. No bodies left identifiable. We stage it as an LPG explosion at the fuel depot on the eastern perimeter.”</p>
+                    
+                    <p>He zoomed the layout.</p>
+                    
+                    <p>“Entry through the weak section of the outer fence here. Breacher takes point on the first two sentries and the gate. Overwatch sets up on the eastern ridge — you own the approach and the depot once we’re inside. Exfil handles timing on the gas line rigging and the blast sequence. Comms stays on the encrypted channel — no open chatter after we cross the fence. We move on my mark.”</p>
+                    
+                    <p>He looked at each of them in turn.</p>
+                    
+                    <p>“No complications like last time. You’ll get paid regardless — I hired you. But my contract closes only when the objectives are met clean. Leader alive. No witnesses. Clean burn. No bullshit. We complete the job and we’re out. Understood?”</p>
+                    
+                    <p>Four nods. No questions.</p>
+                    
+                    <p>Kane let the silence sit for a second, then killed the main screens. The room dropped into deeper shadow.</p>
+                    
+                    <p>“Gear up. We move at 2200 local once we’re on the ground. Light kit. F-16 variant is wheels-up in ninety.”</p>
+                    
+                    <p>The men began checking and packing their equipment with the quiet efficiency of people who had done this before. Kane stood at the table a moment longer, eyes on the dark screens where the satellite images had been.</p>
+                    
+                    <p>Another night. Another set of numbers. Another body count that would stay sealed in this world and never touch the one he was trying to keep separate.</p>
+                    
+                    <p>He turned and followed his team out into the narrow hallway. Behind them the reinforced door sealed shut again. Ahead, the distant bass of the club still thudded through the walls like a heartbeat that didn’t belong to any of them.</p>
+                    
+                    <p>The job had already begun.</p>
                 </div>
                 <div class="page-number">3 / 5</div>
             </div>
@@ -373,7 +427,7 @@
         let currentUploadPart = null;
 
         function loadSavedImages() {
-            for (let i = 1; i <= 1; i++) {  // Only Part 1 has image
+            for (let i = 1; i <= 1; i++) {
                 const saved = localStorage.getItem('part' + i + '_image');
                 if (saved) {
                     const preview = document.getElementById('img-preview-' + i);
