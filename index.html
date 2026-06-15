@@ -10,8 +10,8 @@
         body {
             margin: 0;
             padding: 0;
-            background: #0f0f0f;
-            color: #e8d9b8;
+            background: #0a0a0a;
+            color: #f5f5f5;
             font-family: Georgia, serif;
             min-height: 100vh;
             display: flex;
@@ -21,6 +21,7 @@
         .header {
             text-align: center;
             padding: 20px;
+            color: #e8d9b8;
         }
         
         .header h1 {
@@ -46,7 +47,7 @@
             height: 700px;
             position: relative;
             perspective: 2200px;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.8);
             border-radius: 12px;
         }
         
@@ -54,27 +55,28 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: #f8f1e3;
-            color: #2c2c2c;
-            padding: 45px 55px;
+            background: #1f1f1f;
+            color: #f0e6d2;
+            padding: 40px 50px;
             box-sizing: border-box;
             overflow-y: auto;
             backface-visibility: hidden;
             transition: transform 0.7s cubic-bezier(0.23, 1.0, 0.32, 1);
             transform-origin: left center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
             border-radius: 8px;
-            font-size: 17px;
-            line-height: 1.65;
+            font-size: 17.5px;
+            line-height: 1.72;
+            text-align: justify;
         }
         
         .part-title {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 24px;
-            border-bottom: 2px solid #d4c3a3;
-            padding-bottom: 8px;
-            margin-bottom: 18px;
-            color: #2c2c2c;
+            font-size: 25px;
+            border-bottom: 2px solid #c9b89a;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #e8d9b8;
         }
         
         .image-upload-area {
@@ -90,7 +92,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            background: #f4e9d8;
+            background: #2a2a2a;
         }
         
         .image-upload-area img {
@@ -102,13 +104,30 @@
         
         .upload-placeholder {
             text-align: center;
-            color: #8a7d65;
+            color: #a08b6b;
             font-size: 14px;
         }
         
         .internal-thought {
             font-style: italic;
-            color: #555;
+            color: #c9b89a;
+        }
+        
+        .tap-zone {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 45%;
+            z-index: 10;
+            cursor: pointer;
+        }
+        
+        .tap-zone.left {
+            left: 0;
+        }
+        
+        .tap-zone.right {
+            right: 0;
         }
         
         .controls {
@@ -139,7 +158,7 @@
             bottom: 18px;
             right: 50px;
             font-size: 13px;
-            color: #8a7d65;
+            color: #a08b6b;
         }
     </style>
 </head>
@@ -152,488 +171,282 @@
     <div class="book-container">
         <div class="book" id="book">
             
-            <!-- PAGE 1: Part 1 -->
+            <!-- PAGE 1 -->
             <div class="page" id="page1" style="z-index: 6;">
-                <div class="page-content">
-                    <h2 class="part-title">Part 1: “The Checklist”</h2>
-                    
-                    <div class="image-upload-area" id="img-area-1" onclick="uploadImage(1)">
-                        <img id="img-preview-1" alt="Part 1 Image">
-                        <div class="upload-placeholder" id="placeholder-1">
-                            <strong>Click to upload image for Part 1</strong><br>
-                            <span style="font-size:12px;"> (Locked after saving)</span>
-                        </div>
+                <div class="tap-zone left" onclick="prevPage()"></div>
+                <div class="tap-zone right" onclick="nextPage()"></div>
+                <h2 class="part-title">Part 1: “The Checklist”</h2>
+                <div class="image-upload-area" id="img-area-1" onclick="uploadImage(1)">
+                    <img id="img-preview-1" alt="Part 1 Image">
+                    <div class="upload-placeholder" id="placeholder-1">
+                        <strong>Click to upload image for Part 1</strong><br>
+                        <span style="font-size:12px;"> (Locked after saving)</span>
                     </div>
-                    
-                    <p>The lab was quiet at this hour, the way Harper liked it.</p>
-                    
-                    <p>Golden light slanted through the tall windows, catching on the edges of glass beakers and the whiteboards still covered in yesterday’s marker notes. Most of the team had gone home, but Harper Quinn was still at her desk, sleeves rolled to her elbows, glasses slipping a fraction down her nose as she leaned over the printed slides for the Tokyo conference. Her long chestnut-brown hair had started the day in a neat ponytail; now a few strands had escaped and framed her face. She didn’t notice. She was too busy running her finger down the methods section for the third time, pen poised, ready to catch anything that didn’t feel exactly right.</p>
-                    
-                    <p>“Data. Caffeine. Discovery.” The black mug beside her laptop was half-empty. She took a slow sip without looking away from the page, then made one tiny correction in the margin with her red pen. A small, satisfied breath left her.</p>
-                    
-                    <p class="internal-thought">*Better. That’s better. Can’t stand in front of two hundred people with a sloppy transition between the biomarker panels and the validation data. Not when Dr. Patel is going to be in the front row.*</p>
-                    
-                    <p>She set the pen down and leaned back in her chair, rolling her shoulders once. The white button-up blouse she wore had come untucked slightly at the waist from sitting so long; it clung softly to the curve of her waist and the full swell of her chest before she absently smoothed it back into place. The dark jeans she’d changed into after the morning meeting hugged the generous line of her hips and thighs, but she didn’t think about that. She never really did. Harper thought about whether the data tables were aligned properly and whether she’d remembered to pack extra adapter plugs for Japan.</p>
-                    
-                    <p>A soft knock on the open doorframe pulled her attention up.</p>
-                    
-                    <p>“Hey, Harper.”</p>
-                    
-                    <p>It was Daniel from the proteomics team — tall, a little awkward in that endearing way a lot of the guys in the building were, holding two paper coffee cups like a peace offering. His eyes flicked over her quickly before settling on her face, the way they always did when he came by.</p>
-                    
-                    <p>“I grabbed you one,” he said, stepping inside. “Oat milk, extra shot. Figured you’d still be here running through everything.”</p>
-                    
-                    <p>Harper offered a polite smile, the kind that reached her eyes but stayed carefully measured. She accepted the cup.</p>
-                    
-                    <p>“That’s really sweet of you, Daniel. Thank you.” She took a small sip to prove she meant it, then set the cup beside her own mug. “I’m just finishing the last few slides. Tokyo’s only a day away now.”</p>
-                    
-                    <p>He lingered by the edge of her desk, one hand in his pocket. “You know, if you wanted, I could take a look at the statistical section. Fresh eyes and all that. Or… we could grab dinner after you’re done? There’s that new Thai place on 3rd that’s supposed to be good. Low pressure.”</p>
-                    
-                    <p>Harper felt the familiar, gentle pressure of the moment. It happened often enough that she had a script for it now — kind, but final. She pushed her glasses up with one finger and gave him another small smile, softer this time.</p>
-                    
-                    <p>“I really appreciate the offer. And the coffee. But I’ve still got a lot to get through tonight, and I need to pack when I get home. Rain check?”</p>
-                    
-                    <p>Daniel nodded, the disappointment there but not dramatic. He was used to this answer. Most of them were.</p>
-                    
-                    <p>“Yeah. Of course. Safe flight, Harper.”</p>
-                    
-                    <p>“Thanks, Daniel.”</p>
-                    
-                    <p>He left. Harper watched him go for a second, then let her shoulders drop a fraction as she turned back to her laptop. A quiet thought drifted through her mind, not unkind, just honest.</p>
-                    
-                    <p class="internal-thought">*They’re always sweet. And I always say no. It’s not that I don’t like them. It’s just… easier this way. Cleaner. I know what I’m doing when I’m working. I don’t know what I’m doing when I’m trying to be someone’s girlfriend.*</p>
-                    
-                    <p>She saved the file, closed the laptop, and began gathering her things. The lab coat she’d worn earlier in the day hung on the back of her chair; she folded it neatly and tucked it into her tote. Her reflection in the dark window showed a woman who looked put-together even after a twelve-hour day — the soft waves of her hair, the gentle curve of her figure beneath the blouse and jeans, the way the tortoise-shell frames made her hazel eyes look brighter. Harper didn’t linger on the reflection. She adjusted the strap of her bag and headed for the elevator.</p>
-                    
-                    <p>The ride down was quiet. She checked her phone out of habit and saw a voice note from her sister.</p>
-                    
-                    <p>She pressed play as she stepped out into the evening air.</p>
-                    
-                    <p>Haley’s voice came through bright and teasing, the same way it always had since they were kids.</p>
-                    <p>“Heyyy nerd queen~ Mom wanted me to remind you that you’re flying to Tokyo tomorrow and you are *not* allowed to spend the entire time in your hotel room working. Also, she says if you don’t bring back something cute for her, she’s disowning you. Love you, don’t stay at the lab until midnight again. Byeeee~”</p>
-                    
-                    <p>Harper laughed under her breath, the sound soft and fond. She stopped on the sidewalk outside the building, the golden light of sunset painting the street in warm tones, and recorded a reply while she walked.</p>
-                    
-                    <p>“Hey, tell Mom I already got her a scarf from that little shop she likes and that I will *try* to do one fun thing while I’m there. And I’m literally leaving the lab right now, so you can both relax. Love you too.”</p>
-                    
-                    <p>She sent it, then slipped the phone back into her bag. For a moment she just stood there on the corner, watching the city move around her — people heading home, couples walking close, the distant sound of traffic. A small, familiar ache settled in her chest, the one that showed up whenever her family reminded her how seriously she took everything.</p>
-                    
-                    <p class="internal-thought">*They mean well. I know they do. Mom and Haley are… they’re easy with people. They laugh loud and flirt back and go on dates that turn into something. I’m the one who makes color-coded itineraries and double-checks her presentation three times. Sometimes I wonder if they’re right. If I’m missing something by always choosing the safe, organized path.*</p>
-                    
-                    <p>She shook the thought off gently and kept walking. Two blocks later she stopped at her usual café, the one with the big front window and the barista who already knew her order. She got her oat milk latte and found a small table by the window, setting her laptop bag on the chair beside her. For once she didn’t open the computer right away. She just sat with the warm cup between her hands and watched the street.</p>
-                    
-                    <p>Her phone buzzed with a text from her mom.</p>
-                    
-                    <p>“Safe travels tomorrow, my serious little genius. We love you. Try to smile at someone cute on the plane 💕”</p>
-                    
-                    <p>Harper read it, a helpless little smile tugging at her mouth. She typed back quickly.</p>
-                    
-                    <p>“I will smile at the flight attendant when they bring me water. That counts, right? Love you, Mom.”</p>
-                    
-                    <p>She hit send, then finally opened her laptop. The Tokyo itinerary was already up. She added one small note in the margin of her mental checklist — *call Mom when I land* — and took another sip of her latte.</p>
-                    
-                    <p>Outside, the light was fading into soft blue. Inside the café, Harper Quinn sat with her organized notes, her modest blouse slightly rumpled from the long day, her glasses catching the glow of her screen, looking like the kind of woman who had everything under control.</p>
-                    
-                    <p>And for now, that was enough.</p>
                 </div>
+                <p>The lab was quiet at this hour, the way Harper liked it.</p>
+                <p>Golden light slanted through the tall windows, catching on the edges of glass beakers and the whiteboards still covered in yesterday’s marker notes. Most of the team had gone home, but Harper Quinn was still at her desk, sleeves rolled to her elbows, glasses slipping a fraction down her nose as she leaned over the printed slides for the Tokyo conference. Her long chestnut-brown hair had started the day in a neat ponytail; now a few strands had escaped and framed her face. She didn’t notice. She was too busy running her finger down the methods section for the third time, pen poised, ready to catch anything that didn’t feel exactly right.</p>
+                <p>“Data. Caffeine. Discovery.” The black mug beside her laptop was half-empty. She took a slow sip without looking away from the page, then made one tiny correction in the margin with her red pen. A small, satisfied breath left her.</p>
+                <p class="internal-thought">*Better. That’s better. Can’t stand in front of two hundred people with a sloppy transition between the biomarker panels and the validation data. Not when Dr. Patel is going to be in the front row.*</p>
+                <p>She set the pen down and leaned back in her chair, rolling her shoulders once. The white button-up blouse she wore had come untucked slightly at the waist from sitting so long; it clung softly to the curve of her waist and the full swell of her chest before she absently smoothed it back into place. The dark jeans she’d changed into after the morning meeting hugged the generous line of her hips and thighs, but she didn’t think about that. She never really did. Harper thought about whether the data tables were aligned properly and whether she’d remembered to pack extra adapter plugs for Japan.</p>
+                <p>A soft knock on the open doorframe pulled her attention up.</p>
+                <p>“Hey, Harper.”</p>
+                <p>It was Daniel from the proteomics team — tall, a little awkward in that endearing way a lot of the guys in the building were, holding two paper coffee cups like a peace offering. His eyes flicked over her quickly before settling on her face, the way they always did when he came by.</p>
+                <p>“I grabbed you one,” he said, stepping inside. “Oat milk, extra shot. Figured you’d still be here running through everything.”</p>
+                <p>Harper offered a polite smile, the kind that reached her eyes but stayed carefully measured. She accepted the cup.</p>
+                <p>“That’s really sweet of you, Daniel. Thank you.” She took a small sip to prove she meant it, then set the cup beside her own mug. “I’m just finishing the last few slides. Tokyo’s only a day away now.”</p>
+                <p>He lingered by the edge of her desk, one hand in his pocket. “You know, if you wanted, I could take a look at the statistical section. Fresh eyes and all that. Or… we could grab dinner after you’re done? There’s that new Thai place on 3rd that’s supposed to be good. Low pressure.”</p>
+                <p>Harper felt the familiar, gentle pressure of the moment. It happened often enough that she had a script for it now — kind, but final. She pushed her glasses up with one finger and gave him another small smile, softer this time.</p>
+                <p>“I really appreciate the offer. And the coffee. But I’ve still got a lot to get through tonight, and I need to pack when I get home. Rain check?”</p>
+                <p>Daniel nodded, the disappointment there but not dramatic. He was used to this answer. Most of them were.</p>
+                <p>“Yeah. Of course. Safe flight, Harper.”</p>
+                <p>“Thanks, Daniel.”</p>
+                <p>He left. Harper watched him go for a second, then let her shoulders drop a fraction as she turned back to her laptop. A quiet thought drifted through her mind, not unkind, just honest.</p>
+                <p class="internal-thought">*They’re always sweet. And I always say no. It’s not that I don’t like them. It’s just… easier this way. Cleaner. I know what I’m doing when I’m working. I don’t know what I’m doing when I’m trying to be someone’s girlfriend.*</p>
+                <p>She saved the file, closed the laptop, and began gathering her things. The lab coat she’d worn earlier in the day hung on the back of her chair; she folded it neatly and tucked it into her tote. Her reflection in the dark window showed a woman who looked put-together even after a twelve-hour day — the soft waves of her hair, the gentle curve of her figure beneath the blouse and jeans, the way the tortoise-shell frames made her hazel eyes look brighter. Harper didn’t linger on the reflection. She adjusted the strap of her bag and headed for the elevator.</p>
+                <p>The ride down was quiet. She checked her phone out of habit and saw a voice note from her sister.</p>
+                <p>She pressed play as she stepped out into the evening air.</p>
+                <p>Haley’s voice came through bright and teasing, the same way it always had since they were kids.</p>
+                <p>“Heyyy nerd queen~ Mom wanted me to remind you that you’re flying to Tokyo tomorrow and you are *not* allowed to spend the entire time in your hotel room working. Also, she says if you don’t bring back something cute for her, she’s disowning you. Love you, don’t stay at the lab until midnight again. Byeeee~”</p>
+                <p>Harper laughed under her breath, the sound soft and fond. She stopped on the sidewalk outside the building, the golden light of sunset painting the street in warm tones, and recorded a reply while she walked.</p>
+                <p>“Hey, tell Mom I already got her a scarf from that little shop she likes and that I will *try* to do one fun thing while I’m there. And I’m literally leaving the lab right now, so you can both relax. Love you too.”</p>
+                <p>She sent it, then slipped the phone back into her bag. For a moment she just stood there on the corner, watching the city move around her — people heading home, couples walking close, the distant sound of traffic. A small, familiar ache settled in her chest, the one that showed up whenever her family reminded her how seriously she took everything.</p>
+                <p class="internal-thought">*They mean well. I know they do. Mom and Haley are… they’re easy with people. They laugh loud and flirt back and go on dates that turn into something. I’m the one who makes color-coded itineraries and double-checks her presentation three times. Sometimes I wonder if they’re right. If I’m missing something by always choosing the safe, organized path.*</p>
+                <p>She shook the thought off gently and kept walking. Two blocks later she stopped at her usual café, the one with the big front window and the barista who already knew her order. She got her oat milk latte and found a small table by the window, setting her laptop bag on the chair beside her. For once she didn’t open the computer right away. She just sat with the warm cup between her hands and watched the street.</p>
+                <p>Her phone buzzed with a text from her mom.</p>
+                <p>“Safe travels tomorrow, my serious little genius. We love you. Try to smile at someone cute on the plane 💕”</p>
+                <p>Harper read it, a helpless little smile tugging at her mouth. She typed back quickly.</p>
+                <p>“I will smile at the flight attendant when they bring me water. That counts, right? Love you, Mom.”</p>
+                <p>She hit send, then finally opened her laptop. The Tokyo itinerary was already up. She added one small note in the margin of her mental checklist — *call Mom when I land* — and took another sip of her latte.</p>
+                <p>Outside, the light was fading into soft blue. Inside the café, Harper Quinn sat with her organized notes, her modest blouse slightly rumpled from the long day, her glasses catching the glow of her screen, looking like the kind of woman who had everything under control.</p>
+                <p>And for now, that was enough.</p>
                 <div class="page-number">1 / 6</div>
             </div>
 
-            <!-- PAGE 2: Part 2 -->
+            <!-- PAGE 2 -->
             <div class="page" id="page2" style="z-index: 5;">
-                <div class="page-content">
-                    <h2 class="part-title">Part 2: “The Chaos at Home”</h2>
-                    
-                    <p>Harper’s key turned in the lock with a familiar click.</p>
-                    
-                    <p>The second she stepped inside the house, the smell of garlic and something sweet hit her — probably her mom’s famous lemon chicken and whatever dessert was cooling on the counter. The sound of the TV was on low in the living room, mixed with the clatter of plates and the unmistakable sound of her sister’s laugh.</p>
-                    
-                    <p>“Harper’s home!” her mom’s voice called from the kitchen before Harper had even closed the door.</p>
-                    
-                    <p>She barely had time to set her tote bag down before a blur of golden fur came barreling down the hallway. Cooper, their overly enthusiastic golden retriever, skidded to a stop in front of her, tail whipping like a propeller as he shoved his big head into her hands.</p>
-                    
-                    <p>“Hey, buddy,” Harper laughed softly, crouching to scratch behind his ears. “Yeah, I missed you too.”</p>
-                    
-                    <p>“Cooper, down! Let her breathe!” Her mom appeared in the hallway, wiping her hands on a dish towel. Claire Quinn was a beautiful woman in her early fifties, with the same warm hazel eyes as her daughters and the kind of effortless charm that made everyone feel welcome in her home. She pulled Harper into a quick hug, then held her at arm’s length to look her over.</p>
-                    
-                    <p>“You look tired, sweetheart. Did you eat today?”</p>
-                    
-                    <p>“I had a latte,” Harper admitted, already knowing it wasn’t the answer her mom wanted.</p>
-                    
-                    <p>Claire gave her the look — the one that said *we’ll talk about this later* — and ushered her toward the kitchen. “Come on. Dinner’s almost ready. Haley and Matt are here, and your dad’s pretending he’s not excited you’re leaving for Tokyo.”</p>
-                    
-                    <p>The kitchen was warm and lived-in. The big wooden table was already set for five, with an extra plate because someone always forgot Cooper didn’t need one. Haley was at the counter stealing a piece of bread, her boyfriend Matt leaning against the fridge with a beer, laughing at something she’d said. Their dad, Robert, sat at the head of the table pretending to read the newspaper while clearly listening to everything.</p>
-                    
-                    <p>“Finally,” Haley said dramatically when she saw her sister. She wiped her hands on her jeans and came over to hug Harper, squeezing her tight. “I was starting to think you were going to sleep at the lab again.”</p>
-                    
-                    <p>“I left on time,” Harper said, hugging her back. “Mostly.”</p>
-                    
-                    <p>Matt gave her a friendly nod. “Hey, Harper. Congrats on the Tokyo thing. That’s huge.”</p>
-                    
-                    <p>“Thanks, Matt.”</p>
-                    
-                    <p>Haley looped her arm through Harper’s and dragged her toward the table. “Sit. Mom made the lemon chicken because she knows it’s your favorite. And before you say you’re not hungry, you are. I can see it in your face.”</p>
-                    
-                    <p>Harper let herself be pulled along, a small smile tugging at her lips despite herself. This was the chaos she both loved and sometimes felt slightly outside of.</p>
-                    
-                    <p>Dinner unfolded the way it always did in the Quinn house — loud, overlapping, full of love.</p>
-                    
-                    <p>Her mom kept refilling everyone’s plates even when they said they were full. Her dad asked practical questions about her flight and the conference, the kind that showed he was proud even if he didn’t say it in big words. Haley and Matt bickered playfully about whose turn it was to do the dishes later. Cooper wandered under the table hoping for dropped food, his tail thumping against Harper’s leg every few minutes.</p>
-                    
-                    <p>Halfway through the meal, Haley leaned back in her chair and grinned across the table at Harper.</p>
-                    
-                    <p>“So,” she said, eyes sparkling with mischief, “you ready to have an actual life in Tokyo or are you going to spend the whole time in your hotel room with your laptop like a little work goblin?”</p>
-                    
-                    <p>“Haley,” their mom warned lightly, though she was smiling.</p>
-                    
-                    <p>“What? I’m just saying. She’s going to one of the coolest cities in the world and I already know she’s going to come back with zero pictures that aren’t of conference slides.”</p>
-                    
-                    <p>Harper felt the familiar flicker of discomfort in her chest. She pushed a piece of chicken around her plate with her fork, keeping her voice light.</p>
-                    
-                    <p>“I’m going for work, Hales. Not a vacation.”</p>
-                    
-                    <p>“Yeah, but you could do both,” Haley said, not unkindly. “You’re allowed to have fun, you know. You’re not, like, contractually obligated to be the most serious person in every room.”</p>
-                    
-                    <p>Their dad chuckled quietly behind his glass of water. Even Matt smiled a little.</p>
-                    
-                    <p>Harper felt her cheeks warm. She knew they didn’t mean it cruelly. This was how they showed love — by teasing her, by wanting her to loosen up, by worrying that she worked too hard and felt too much pressure to be perfect. But the words still landed in that soft, sore place inside her.</p>
-                    
-                    <p>“I have fun,” she said, a little quieter than she meant to. “I just… like having things organized. It makes me feel better.”</p>
-                    
-                    <p>Claire reached over and gently squeezed Harper’s hand across the table.</p>
-                    
-                    <p>“We know, baby. And we love that about you. You keep us all together.” She gave Haley a pointed look. “Some of us more than others.”</p>
-                    
-                    <p>“Hey,” Haley protested, but she was grinning.</p>
-                    
-                    <p>The conversation moved on — Matt telling a story about his job, her dad asking about Cooper’s upcoming vet appointment, her mom complaining about the neighbor’s new fence. Harper listened, smiled in the right places, and answered when someone asked her something. But part of her mind stayed on that small, familiar ache.</p>
-                    
-                    <p class="internal-thought">*They’re right. I know they’re right. I am the serious one. The responsible one. The one who makes the plans and double-checks everything. Sometimes I wish I could be more like Haley — just… easy. But every time I try to loosen up, my brain starts listing all the ways it could go wrong.*</p>
-                    
-                    <p>After dinner, Harper helped clear the table while her mom packed her some leftovers “for the plane, just in case.” Haley followed her into the kitchen, bumping her hip against Harper’s.</p>
-                    
-                    <p>“You know I’m just messing with you, right?” she said, voice softer now. “I’m proud of you. Tokyo is a big deal. I just don’t want you to forget there’s a whole world outside your to-do list.”</p>
-                    
-                    <p>Harper looked at her sister — the same warm eyes, the same easy smile — and felt the tightness in her chest ease a little.</p>
-                    
-                    <p>“I know,” she said quietly. “I’m trying.”</p>
-                    
-                    <p>Haley bumped her hip again, gentler this time. “Good. Now go pack before Mom tries to send you with three different jackets ‘just in case it gets cold.’”</p>
-                    
-                    <p>Upstairs in her childhood bedroom, Harper finally changed out of her work clothes and into something softer — an oversized cream sweater and comfortable shorts. She stood in front of her open suitcase for a long moment, then started folding things with careful precision.</p>
-                    
-                    <p>From downstairs she could still hear the low murmur of voices and Cooper’s occasional bark. The sound of home. Warm. Slightly chaotic. Full of people who loved her exactly as she was, even when they teased her for being the serious one.</p>
-                    
-                    <p>Harper placed her presentation notes in the front pocket of her carry-on, right where she could reach them easily.</p>
-                    
-                    <p>She was leaving tomorrow.</p>
-                    
-                    <p>And even though part of her was already running through the checklist in her head, another part — small and quiet — wondered what it might feel like to actually smile at someone on the plane.</p>
-                    
-                    <p>Just once.</p>
-                </div>
+                <div class="tap-zone left" onclick="prevPage()"></div>
+                <div class="tap-zone right" onclick="nextPage()"></div>
+                <h2 class="part-title">Part 2: “The Chaos at Home”</h2>
+                <p>Harper’s key turned in the lock with a familiar click.</p>
+                <p>The second she stepped inside the house, the smell of garlic and something sweet hit her — probably her mom’s famous lemon chicken and whatever dessert was cooling on the counter. The sound of the TV was on low in the living room, mixed with the clatter of plates and the unmistakable sound of her sister’s laugh.</p>
+                <p>“Harper’s home!” her mom’s voice called from the kitchen before Harper had even closed the door.</p>
+                <p>She barely had time to set her tote bag down before a blur of golden fur came barreling down the hallway. Cooper, their overly enthusiastic golden retriever, skidded to a stop in front of her, tail whipping like a propeller as he shoved his big head into her hands.</p>
+                <p>“Hey, buddy,” Harper laughed softly, crouching to scratch behind his ears. “Yeah, I missed you too.”</p>
+                <p>“Cooper, down! Let her breathe!” Her mom appeared in the hallway, wiping her hands on a dish towel. Claire Quinn was a beautiful woman in her early fifties, with the same warm hazel eyes as her daughters and the kind of effortless charm that made everyone feel welcome in her home. She pulled Harper into a quick hug, then held her at arm’s length to look her over.</p>
+                <p>“You look tired, sweetheart. Did you eat today?”</p>
+                <p>“I had a latte,” Harper admitted, already knowing it wasn’t the answer her mom wanted.</p>
+                <p>Claire gave her the look — the one that said *we’ll talk about this later* — and ushered her toward the kitchen. “Come on. Dinner’s almost ready. Haley and Matt are here, and your dad’s pretending he’s not excited you’re leaving for Tokyo.”</p>
+                <p>The kitchen was warm and lived-in. The big wooden table was already set for five, with an extra plate because someone always forgot Cooper didn’t need one. Haley was at the counter stealing a piece of bread, her boyfriend Matt leaning against the fridge with a beer, laughing at something she’d said. Their dad, Robert, sat at the head of the table pretending to read the newspaper while clearly listening to everything.</p>
+                <p>“Finally,” Haley said dramatically when she saw her sister. She wiped her hands on her jeans and came over to hug Harper, squeezing her tight. “I was starting to think you were going to sleep at the lab again.”</p>
+                <p>“I left on time,” Harper said, hugging her back. “Mostly.”</p>
+                <p>Matt gave her a friendly nod. “Hey, Harper. Congrats on the Tokyo thing. That’s huge.”</p>
+                <p>“Thanks, Matt.”</p>
+                <p>Haley looped her arm through Harper’s and dragged her toward the table. “Sit. Mom made the lemon chicken because she knows it’s your favorite. And before you say you’re not hungry, you are. I can see it in your face.”</p>
+                <p>Harper let herself be pulled along, a small smile tugging at her lips despite herself. This was the chaos she both loved and sometimes felt slightly outside of.</p>
+                <p>Dinner unfolded the way it always did in the Quinn house — loud, overlapping, full of love.</p>
+                <p>Her mom kept refilling everyone’s plates even when they said they were full. Her dad asked practical questions about her flight and the conference, the kind that showed he was proud even if he didn’t say it in big words. Haley and Matt bickered playfully about whose turn it was to do the dishes later. Cooper wandered under the table hoping for dropped food, his tail thumping against Harper’s leg every few minutes.</p>
+                <p>Halfway through the meal, Haley leaned back in her chair and grinned across the table at Harper.</p>
+                <p>“So,” she said, eyes sparkling with mischief, “you ready to have an actual life in Tokyo or are you going to spend the whole time in your hotel room with your laptop like a little work goblin?”</p>
+                <p>“Haley,” their mom warned lightly, though she was smiling.</p>
+                <p>“What? I’m just saying. She’s going to one of the coolest cities in the world and I already know she’s going to come back with zero pictures that aren’t of conference slides.”</p>
+                <p>Harper felt the familiar flicker of discomfort in her chest. She pushed a piece of chicken around her plate with her fork, keeping her voice light.</p>
+                <p>“I’m going for work, Hales. Not a vacation.”</p>
+                <p>“Yeah, but you could do both,” Haley said, not unkindly. “You’re allowed to have fun, you know. You’re not, like, contractually obligated to be the most serious person in every room.”</p>
+                <p>Their dad chuckled quietly behind his glass of water. Even Matt smiled a little.</p>
+                <p>Harper felt her cheeks warm. She knew they didn’t mean it cruelly. This was how they showed love — by teasing her, by wanting her to loosen up, by worrying that she worked too hard and felt too much pressure to be perfect. But the words still landed in that soft, sore place inside her.</p>
+                <p>“I have fun,” she said, a little quieter than she meant to. “I just… like having things organized. It makes me feel better.”</p>
+                <p>Claire reached over and gently squeezed Harper’s hand across the table.</p>
+                <p>“We know, baby. And we love that about you. You keep us all together.” She gave Haley a pointed look. “Some of us more than others.”</p>
+                <p>“Hey,” Haley protested, but she was grinning.</p>
+                <p>The conversation moved on — Matt telling a story about his job, her dad asking about Cooper’s upcoming vet appointment, her mom complaining about the neighbor’s new fence. Harper listened, smiled in the right places, and answered when someone asked her something. But part of her mind stayed on that small, familiar ache.</p>
+                <p class="internal-thought">*They’re right. I know they’re right. I am the serious one. The responsible one. The one who makes the plans and double-checks everything. Sometimes I wish I could be more like Haley — just… easy. But every time I try to loosen up, my brain starts listing all the ways it could go wrong.*</p>
+                <p>After dinner, Harper helped clear the table while her mom packed her some leftovers “for the plane, just in case.” Haley followed her into the kitchen, bumping her hip against Harper’s.</p>
+                <p>“You know I’m just messing with you, right?” she said, voice softer now. “I’m proud of you. Tokyo is a big deal. I just don’t want you to forget there’s a whole world outside your to-do list.”</p>
+                <p>Harper looked at her sister — the same warm eyes, the same easy smile — and felt the tightness in her chest ease a little.</p>
+                <p>“I know,” she said quietly. “I’m trying.”</p>
+                <p>Haley bumped her hip again, gentler this time. “Good. Now go pack before Mom tries to send you with three different jackets ‘just in case it gets cold.’”</p>
+                <p>Upstairs in her childhood bedroom, Harper finally changed out of her work clothes and into something softer — an oversized cream sweater and comfortable shorts. She stood in front of her open suitcase for a long moment, then started folding things with careful precision.</p>
+                <p>From downstairs she could still hear the low murmur of voices and Cooper’s occasional bark. The sound of home. Warm. Slightly chaotic. Full of people who loved her exactly as she was, even when they teased her for being the serious one.</p>
+                <p>Harper placed her presentation notes in the front pocket of her carry-on, right where she could reach them easily.</p>
+                <p>She was leaving tomorrow.</p>
+                <p>And even though part of her was already running through the checklist in her head, another part — small and quiet — wondered what it might feel like to actually smile at someone on the plane.</p>
+                <p>Just once.</p>
                 <div class="page-number">2 / 6</div>
             </div>
 
-            <!-- PAGE 3: Part 3 -->
+            <!-- PAGE 3 -->
             <div class="page" id="page3" style="z-index: 4;">
-                <div class="page-content">
-                    <h2 class="part-title">Part 3: “The Brief”</h2>
-                    
-                    <p>The camera found him from a distance, half a block back, like it had been tailing him for minutes.</p>
-                    
-                    <p>Kane Hale moved through the pulsing nightlife district with quiet certainty. Black tailored shirt open at the collar beneath a dark jacket, jeans cut clean, boots that didn’t scuff. He carried the subtle aura of someone who could be famous if he wanted to be — sharp lines, unreadable eyes, the kind of presence that made people glance twice without knowing why. He blended anyway. The neon and the crowd swallowed him whole.</p>
-                    
-                    <p>He reached the high-end strip club and stepped inside without hesitation.</p>
-                    
-                    <p>The interior hit like a fever dream. Dim colored lights washed everything in deep reds and shifting purples. On the central stage a woman moved slow and deliberate under shifting gels while other dancers — men and women — worked the floor and the poles in lazy, hypnotic rhythm. The bass thumped through the soles of shoes. Bars lined both walls, three deep with bodies. Girls and boys danced between tables. Laughter and shouted orders cut through the music.</p>
-                    
-                    <p>Kane cut straight through the crowd like it was water. A woman reached for his arm with a practiced smile; another leaned in close, lips near his ear. He didn’t slow. Didn’t look. The touches slid off him. He kept moving until he slipped through a staff-only door into the kitchen.</p>
-                    
-                    <p>Stainless steel and steam. The clatter of plates. At the back prep table stood Luis — short, stocky, older Mexican man with a weathered face and the tired eyes of someone who had seen too many of these nights. He straightened when Kane appeared.</p>
-                    
-                    <p>“Estás tarde otra vez, cabrón,” Luis said, voice low. “One of these days your late habits are going to get me killed. Come on.”</p>
-                    
-                    <p>He led Kane past the kitchen line into a narrow hallway and stopped at what looked like a heavy storage door. Titanium frame. Reinforced. Luis glanced up at the CCTV camera mounted in the corner. Kane stepped forward, looked directly at the lens, and spoke a short string of numbers and letters in a flat, even tone.</p>
-                    
-                    <p>The light on the camera blinked once. The lock clicked.</p>
-                    
-                    <p>They stepped into the secure room.</p>
-                    
-                    <p>It was soundproofed, low-lit, and already occupied. Four men stood around a long black table. The screens on the wall glowed with satellite imagery, thermal overlays, and building layouts.</p>
-                    
-                    <p>The narrator’s eye moved across them the way someone who had worked with them before would:</p>
-                    
-                    <p>The breacher — thick through the chest and shoulders, ex-Special Forces, the kind of man who could shoulder a door off its hinges and still move quiet.</p>
-                    <p>The overwatch — lean, always chewing gum, eyes that never stopped scanning even when he was standing still.</p>
-                    <p>The exfil and logistics man — precise, calm, the one who lived and died by timing windows and clean routes.</p>
-                    <p>The fourth — communications and support, quiet, already running a final systems check on encrypted tablets.</p>
-                    
-                    <p>Kane stopped at the head of the table. No greetings. He tapped the central screen.</p>
-                    
-                    <p>“Contract 47-Alpha. Target compound. We go in quiet, we take the regional commander alive. Everyone else inside is a witness. No screams. No bodies left identifiable. We stage it as an LPG explosion at the fuel depot on the eastern perimeter.”</p>
-                    
-                    <p>He zoomed the layout.</p>
-                    
-                    <p>“Entry through the weak section of the outer fence here. Breacher takes point on the first two sentries and the gate. Overwatch sets up on the eastern ridge — you own the approach and the depot once we’re inside. Exfil handles timing on the gas line rigging and the blast sequence. Comms stays on the encrypted channel — no open chatter after we cross the fence. We move on my mark.”</p>
-                    
-                    <p>He looked at each of them in turn.</p>
-                    
-                    <p>“No complications like last time. You’ll get paid regardless — I hired you. But my contract closes only when the objectives are met clean. Leader alive. No witnesses. Clean burn. No bullshit. We complete the job and we’re out. Understood?”</p>
-                    
-                    <p>Four nods. No questions.</p>
-                    
-                    <p>Kane let the silence sit for a second, then killed the main screens. The room dropped into deeper shadow.</p>
-                    
-                    <p>“Gear up. We move at 2200 local once we’re on the ground. Light kit. F-16 variant is wheels-up in ninety.”</p>
-                    
-                    <p>The men began checking and packing their equipment with the quiet efficiency of people who had done this before. Kane stood at the table a moment longer, eyes on the dark screens where the satellite images had been.</p>
-                    
-                    <p>Another night. Another set of numbers. Another body count that would stay sealed in this world and never touch the one he was trying to keep separate.</p>
-                    
-                    <p>He turned and followed his team out into the narrow hallway. Behind them the reinforced door sealed shut again. Ahead, the distant bass of the club still thudded through the walls like a heartbeat that didn’t belong to any of them.</p>
-                    
-                    <p>The job had already begun.</p>
-                </div>
+                <div class="tap-zone left" onclick="prevPage()"></div>
+                <div class="tap-zone right" onclick="nextPage()"></div>
+                <h2 class="part-title">Part 3: “The Brief”</h2>
+                <p>The camera found him from a distance, half a block back, like it had been tailing him for minutes.</p>
+                <p>Kane Hale moved through the pulsing nightlife district with quiet certainty. Black tailored shirt open at the collar beneath a dark jacket, jeans cut clean, boots that didn’t scuff. He carried the subtle aura of someone who could be famous if he wanted to be — sharp lines, unreadable eyes, the kind of presence that made people glance twice without knowing why. He blended anyway. The neon and the crowd swallowed him whole.</p>
+                <p>He reached the high-end strip club and stepped inside without hesitation.</p>
+                <p>The interior hit like a fever dream. Dim colored lights washed everything in deep reds and shifting purples. On the central stage a woman moved slow and deliberate under shifting gels while other dancers — men and women — worked the floor and the poles in lazy, hypnotic rhythm. The bass thumped through the soles of shoes. Bars lined both walls, three deep with bodies. Girls and boys danced between tables. Laughter and shouted orders cut through the music.</p>
+                <p>Kane cut straight through the crowd like it was water. A woman reached for his arm with a practiced smile; another leaned in close, lips near his ear. He didn’t slow. Didn’t look. The touches slid off him. He kept moving until he slipped through a staff-only door into the kitchen.</p>
+                <p>Stainless steel and steam. The clatter of plates. At the back prep table stood Luis — short, stocky, older Mexican man with a weathered face and the tired eyes of someone who had seen too many of these nights. He straightened when Kane appeared.</p>
+                <p>“Estás tarde otra vez, cabrón,” Luis said, voice low. “One of these days your late habits are going to get me killed. Come on.”</p>
+                <p>He led Kane past the kitchen line into a narrow hallway and stopped at what looked like a heavy storage door. Titanium frame. Reinforced. Luis glanced up at the CCTV camera mounted in the corner. Kane stepped forward, looked directly at the lens, and spoke a short string of numbers and letters in a flat, even tone.</p>
+                <p>The light on the camera blinked once. The lock clicked.</p>
+                <p>They stepped into the secure room.</p>
+                <p>It was soundproofed, low-lit, and already occupied. Four men stood around a long black table. The screens on the wall glowed with satellite imagery, thermal overlays, and building layouts.</p>
+                <p>The narrator’s eye moved across them the way someone who had worked with them before would:</p>
+                <p>The breacher — thick through the chest and shoulders, ex-Special Forces, the kind of man who could shoulder a door off its hinges and still move quiet.</p>
+                <p>The overwatch — lean, always chewing gum, eyes that never stopped scanning even when he was standing still.</p>
+                <p>The exfil and logistics man — precise, calm, the one who lived and died by timing windows and clean routes.</p>
+                <p>The fourth — communications and support, quiet, already running a final systems check on encrypted tablets.</p>
+                <p>Kane stopped at the head of the table. No greetings. He tapped the central screen.</p>
+                <p>“Contract 47-Alpha. Target compound. We go in quiet, we take the regional commander alive. Everyone else inside is a witness. No screams. No bodies left identifiable. We stage it as an LPG explosion at the fuel depot on the eastern perimeter.”</p>
+                <p>He zoomed the layout.</p>
+                <p>“Entry through the weak section of the outer fence here. Breacher takes point on the first two sentries and the gate. Overwatch sets up on the eastern ridge — you own the approach and the depot once we’re inside. Exfil handles timing on the gas line rigging and the blast sequence. Comms stays on the encrypted channel — no open chatter after we cross the fence. We move on my mark.”</p>
+                <p>He looked at each of them in turn.</p>
+                <p>“No complications like last time. You’ll get paid regardless — I hired you. But my contract closes only when the objectives are met clean. Leader alive. No witnesses. Clean burn. No bullshit. We complete the job and we’re out. Understood?”</p>
+                <p>Four nods. No questions.</p>
+                <p>Kane let the silence sit for a second, then killed the main screens. The room dropped into deeper shadow.</p>
+                <p>“Gear up. We move at 2200 local once we’re on the ground. Light kit. F-16 variant is wheels-up in ninety.”</p>
+                <p>The men began checking and packing their equipment with the quiet efficiency of people who had done this before. Kane stood at the table a moment longer, eyes on the dark screens where the satellite images had been.</p>
+                <p>Another night. Another set of numbers. Another body count that would stay sealed in this world and never touch the one he was trying to keep separate.</p>
+                <p>He turned and followed his team out into the narrow hallway. Behind them the reinforced door sealed shut again. Ahead, the distant bass of the club still thudded through the walls like a heartbeat that didn’t belong to any of them.</p>
+                <p>The job had already begun.</p>
                 <div class="page-number">3 / 6</div>
             </div>
 
-            <!-- PAGE 4: Part 4 (Expanded) -->
+            <!-- PAGE 4 -->
             <div class="page" id="page4" style="z-index: 3;">
-                <div class="page-content">
-                    <h2 class="part-title">Part 4: “The Weight of Numbers”</h2>
-                    
-                    <p>The narrow hallway behind the strip club spat Kane and his team out into the cool night air. The distant bass still pulsed through the walls like a dying heartbeat, but Kane’s mind had already left that place behind. He adjusted the collar of his dark jacket as the two blacked-out SUVs idled at the curb, engines purring low. No words were exchanged. The men loaded their minimal personal gear with practiced silence and climbed in.</p>
-                    
-                    <p>The convoy rolled away from the pulsing nightlife district, tires humming over cracked asphalt as the city lights thinned and gave way to industrial outskirts. Kane sat in the passenger seat of the lead vehicle, one elbow propped on the door, eyes scanning the road ahead with quiet certainty. Another night. Another contract. The numbers on this one had climbed higher than usual, but numbers were just numbers until they started breathing and carrying rifles.</p>
-                    
-                    <p>Twenty minutes later they reached the secure private military airstrip on the edge of the county. Floodlights bathed the tarmac in harsh white. A massive C-17 Globemaster III dominated the runway, its rear ramp already lowered like the mouth of a waiting giant. Ground crew in reflective vests moved with urgent purpose under the red night-vision compatible lights. Fresh markings had been applied near the tail — a Priority 1 national mission suffix that guaranteed no unnecessary questions from anyone on the ground.</p>
-                    
-                    <p>Kane stepped out first, boots hitting the tarmac with solid finality. His four-man team followed without hesitation. Each carried their personal kit — nothing flashy, everything functional. They walked up the ramp into the cavernous belly of the aircraft. Seats had been hastily rigged along the sides of the hold. The center was stacked with pallets of equipment, fuel bladders, and locked crates. The loadmaster gave a curt nod as the last man boarded.</p>
-                    
-                    <p>“Wheels up in five, sir.”</p>
-                    
-                    <p>Kane buckled into his seat. The team did the same. The massive engines began to spool up, a deep, bone-rattling thunder that filled the hold. The C-17 lumbered forward, accelerating down the runway before lifting heavily into the black sky, banking east over the Atlantic.</p>
-                    
-                    <p>The flight would be fifteen hours nonstop.</p>
-                    
-                    <p>For the first several hours the cabin remained mostly silent except for the unrelenting roar of the four engines. Dim red lights cast long shadows across the men’s faces. Kane sat motionless, eyes half-closed, mentally walking through every phase of the operation. Contingencies layered on contingencies. He didn’t need to speak — his team knew the rhythm.</p>
-                    
-                    <p>The first aerial refueling came four hours out. A KC-46 Pegasus tanker appeared as a faint silhouette against the moonlit clouds. The C-17’s boom operator made the connection with precision born of long practice. Fuel flowed steadily. The aircraft drank deep and continued on its path. Hours later, over the Mediterranean under a pale predawn sky, the second rendezvous occurred — this time with a KC-135 Stratotanker. Another flawless hookup. Another silent transfer. No one commented on the technical ballet happening thousands of feet above the water. It was simply part of the job.</p>
-                    
-                    <p>Sleep was minimal. The overwatch chewed his gum with increasing speed, eyes flicking around the hold even though there was nothing to scan. The breacher disassembled and cleaned his primary rifle for the third time, movements mechanical. The exfil man reviewed timing charts on a rugged tablet. The comms specialist ran final diagnostics on encrypted systems. Kane remained still, conserving every ounce of energy and focus. This was the professional calm that had earned him the name Mors — the inevitability of death. He carried it like a second skin.</p>
-                    
-                    <p>Fifteen grueling hours after departure, the C-17 descended through hazy heat into a remote desert airstrip near the Qatar border. The ramp dropped with a hydraulic groan, and the team stepped out into searing midday air that shimmered off the runway. The smell of jet fuel, sand, and distant dust hit them immediately. A small convoy of local military vehicles waited, engines running.</p>
-                    
-                    <p>They were ushered quickly into a large climate-controlled briefing tent. Maps, satellite imagery, thermal overlays, and real-time drone feeds covered every available surface. A stern-faced local army colonel in desert camouflage stood at the head of the main table, flanked by several of his officers.</p>
-                    
-                    <p>The colonel wasted no time on pleasantries.</p>
-                    
-                    <p>“You will coordinate fully with my forces on the outer perimeter,” he stated in heavily accented but clear English. “This is a joint operation. The target compound and surrounding hotspot area currently hold approximately five hundred and fifty armed militants. They are heavily dug in with reinforced positions. The regional commander is the priority extraction target.”</p>
-                    
-                    <p>A visible ripple of tension passed through Kane’s four-man team. Five hundred and fifty. Their usual contracts rarely exceeded two hundred fifty to three hundred at the absolute maximum. The breacher’s jaw tightened noticeably. The overwatch stopped chewing mid-motion. Even the normally unflappable exfil man shifted his weight. This was a massive escalation.</p>
-                    
-                    <p>Kane’s face remained impassive, his posture relaxed but commanding.</p>
-                    
-                    <p>He stepped forward. “Five hundred and fifty is a significant increase from the initial numbers provided during planning.”</p>
-                    
-                    <p>The colonel met his gaze without flinching, eyes tired and hard. “You think I don’t know the numbers, American? I haven’t seen my family in six months. At forty I will be dismissed from service. My men are regular soldiers — not your elite contractors. They know that some of them will likely die tonight. You? You are being paid millions for this.”</p>
-                    
-                    <p>The tent was dead silent.</p>
-                    
-                    <p>Kane held the man’s stare for a long, measured second.</p>
-                    
-                    <p>“There’s a difference between you and me,” he said quietly, voice low and even. “But I promise none of your men will die tonight.”</p>
-                    
-                    <p>The colonel let out a short, bitter laugh. “This isn’t a movie.”</p>
-                    
-                    <p>Kane’s lips curved into the smallest, coldest smirk.</p>
-                    
-                    <p>“I know.”</p>
-                    
-                    <p>The weight of those words settled over the room. Kane turned to his team, his tone shifting back to calm command.</p>
-                    
-                    <p>“We proceed. No choice. We do this clean.”</p>
-                    
-                    <p>The men nodded, hesitation still visible in their eyes but discipline winning out. They moved immediately to the gear tables along one side of the tent and began prepping in earnest — checking ceramic plates, loading magazines, mounting suppressors, testing night-vision units, and syncing comms.</p>
-                    
-                    <p>Kane worked alongside them, methodically assembling his own lightweight kit. Meanwhile, the comms specialist coordinated with local technicians to clear network technicalities in the deployment area. They established the single critical operational window: a strict twenty-minute power cut to the entire compound. That narrow slice of time was the only opportunity they would have to extract the leader and rig the explosives at the fuel depot. One second late and the entire extraction would be automatically cancelled. No extensions. No retries.</p>
-                    
-                    <p>Kane stood at the open flap of the tent for a moment, looking out over the sun-baked desert as the final preparations wrapped up. The sheer scale of five hundred and fifty armed militants pressed down on everyone else like a physical weight. On him, it settled like familiar armor — another set of numbers, another job that would never touch the separate world he was carefully building.</p>
-                    
-                    <p>He checked his watch.</p>
-                    
-                    <p>“Load up,” he said calmly, voice carrying the quiet authority that made men follow him into hell. “We insert in twenty.”</p>
-                    
-                    <p>The team moved out toward the waiting insertion vehicles, the desert heat rising around them. Weapons checked. Minds focused. The real operation — the ground game against overwhelming odds — was about to begin.</p>
-                </div>
+                <div class="tap-zone left" onclick="prevPage()"></div>
+                <div class="tap-zone right" onclick="nextPage()"></div>
+                <h2 class="part-title">Part 4: “The Weight of Numbers”</h2>
+                <p>The narrow hallway behind the strip club spat Kane and his team out into the cool night air. The distant bass still pulsed through the walls like a dying heartbeat, but Kane’s mind had already left that place behind. He adjusted the collar of his dark jacket as the two blacked-out SUVs idled at the curb, engines purring low. No words were exchanged. The men loaded their minimal personal gear with practiced silence and climbed in.</p>
+                <p>The convoy rolled away from the pulsing nightlife district, tires humming over cracked asphalt as the city lights thinned and gave way to industrial outskirts. Kane sat in the passenger seat of the lead vehicle, one elbow propped on the door, eyes scanning the road ahead with quiet certainty. Another night. Another contract. The numbers on this one had climbed higher than usual, but numbers were just numbers until they started breathing and carrying rifles.</p>
+                <p>Twenty minutes later they reached the secure private military airstrip on the edge of the county. Floodlights bathed the tarmac in harsh white. A massive C-17 Globemaster III dominated the runway, its rear ramp already lowered like the mouth of a waiting giant. Ground crew in reflective vests moved with urgent purpose under the red night-vision compatible lights. Fresh markings had been applied near the tail — a Priority 1 national mission suffix that guaranteed no unnecessary questions from anyone on the ground.</p>
+                <p>Kane stepped out first, boots hitting the tarmac with solid finality. His four-man team followed without hesitation. Each carried their personal kit — nothing flashy, everything functional. They walked up the ramp into the cavernous belly of the aircraft. Seats had been hastily rigged along the sides of the hold. The center was stacked with pallets of equipment, fuel bladders, and locked crates. The loadmaster gave a curt nod as the last man boarded.</p>
+                <p>“Wheels up in five, sir.”</p>
+                <p>Kane buckled into his seat. The team did the same. The massive engines began to spool up, a deep, bone-rattling thunder that filled the hold. The C-17 lumbered forward, accelerating down the runway before lifting heavily into the black sky, banking east over the Atlantic.</p>
+                <p>The flight would be fifteen hours nonstop.</p>
+                <p>For the first several hours the cabin remained mostly silent except for the unrelenting roar of the four engines. Dim red lights cast long shadows across the men’s faces. Kane sat motionless, eyes half-closed, mentally walking through every phase of the operation. Contingencies layered on contingencies. He didn’t need to speak — his team knew the rhythm.</p>
+                <p>The first aerial refueling came four hours out. A KC-46 Pegasus tanker appeared as a faint silhouette against the moonlit clouds. The C-17’s boom operator made the connection with precision born of long practice. Fuel flowed steadily. The aircraft drank deep and continued on its path. Hours later, over the Mediterranean under a pale predawn sky, the second rendezvous occurred — this time with a KC-135 Stratotanker. Another flawless hookup. Another silent transfer. No one commented on the technical ballet happening thousands of feet above the water. It was simply part of the job.</p>
+                <p>Sleep was minimal. The overwatch chewed his gum with increasing speed, eyes flicking around the hold even though there was nothing to scan. The breacher disassembled and cleaned his primary rifle for the third time, movements mechanical. The exfil man reviewed timing charts on a rugged tablet. The comms specialist ran final diagnostics on encrypted systems. Kane remained still, conserving every ounce of energy and focus. This was the professional calm that had earned him the name Mors — the inevitability of death. He carried it like a second skin.</p>
+                <p>Fifteen grueling hours after departure, the C-17 descended through hazy heat into a remote desert airstrip near the Qatar border. The ramp dropped with a hydraulic groan, and the team stepped out into searing midday air that shimmered off the runway. The smell of jet fuel, sand, and distant dust hit them immediately. A small convoy of local military vehicles waited, engines running.</p>
+                <p>They were ushered quickly into a large climate-controlled briefing tent. Maps, satellite imagery, thermal overlays, and real-time drone feeds covered every available surface. A stern-faced local army colonel in desert camouflage stood at the head of the main table, flanked by several of his officers.</p>
+                <p>The colonel wasted no time on pleasantries.</p>
+                <p>“You will coordinate fully with my forces on the outer perimeter,” he stated in heavily accented but clear English. “This is a joint operation. The target compound and surrounding hotspot area currently hold approximately five hundred and fifty armed militants. They are heavily dug in with reinforced positions. The regional commander is the priority extraction target.”</p>
+                <p>A visible ripple of tension passed through Kane’s four-man team. Five hundred and fifty. Their usual contracts rarely exceeded two hundred fifty to three hundred at the absolute maximum. The breacher’s jaw tightened noticeably. The overwatch stopped chewing mid-motion. Even the normally unflappable exfil man shifted his weight. This was a massive escalation.</p>
+                <p>Kane’s face remained impassive, his posture relaxed but commanding.</p>
+                <p>He stepped forward. “Five hundred and fifty is a significant increase from the initial numbers provided during planning.”</p>
+                <p>The colonel met his gaze without flinching, eyes tired and hard. “You think I don’t know the numbers, American? I haven’t seen my family in six months. At forty I will be dismissed from service. My men are regular soldiers — not your elite contractors. They know that some of them will likely die tonight. You? You are being paid millions for this.”</p>
+                <p>The tent was dead silent.</p>
+                <p>Kane held the man’s stare for a long, measured second.</p>
+                <p>“There’s a difference between you and me,” he said quietly, voice low and even. “But I promise none of your men will die tonight.”</p>
+                <p>The colonel let out a short, bitter laugh. “This isn’t a movie.”</p>
+                <p>Kane’s lips curved into the smallest, coldest smirk.</p>
+                <p>“I know.”</p>
+                <p>The weight of those words settled over the room. Kane turned to his team, his tone shifting back to calm command.</p>
+                <p>“We proceed. No choice. We do this clean.”</p>
+                <p>The men nodded, hesitation still visible in their eyes but discipline winning out. They moved immediately to the gear tables along one side of the tent and began prepping in earnest — checking ceramic plates, loading magazines, mounting suppressors, testing night-vision units, and syncing comms.</p>
+                <p>Kane worked alongside them, methodically assembling his own lightweight kit. Meanwhile, the comms specialist coordinated with local technicians to clear network technicalities in the deployment area. They established the single critical operational window: a strict twenty-minute power cut to the entire compound. That narrow slice of time was the only opportunity they would have to extract the leader and rig the explosives at the fuel depot. One second late and the entire extraction would be automatically cancelled. No extensions. No retries.</p>
+                <p>Kane stood at the open flap of the tent for a moment, looking out over the sun-baked desert as the final preparations wrapped up. The sheer scale of five hundred and fifty armed militants pressed down on everyone else like a physical weight. On him, it settled like familiar armor — another set of numbers, another job that would never touch the separate world he was carefully building.</p>
+                <p>He checked his watch.</p>
+                <p>“Load up,” he said calmly, voice carrying the quiet authority that made men follow him into hell. “We insert in twenty.”</p>
+                <p>The team moved out toward the waiting insertion vehicles, the desert heat rising around them. Weapons checked. Minds focused. The real operation — the ground game against overwhelming odds — was about to begin.</p>
                 <div class="page-number">4 / 6</div>
             </div>
 
-            <!-- PAGE 5: Part 5 (NEW - Long intense version with image holder) -->
+            <!-- PAGE 5: Part 5 with working image holder -->
             <div class="page" id="page5" style="z-index: 2;">
-                <div class="page-content">
-                    <h2 class="part-title">Part 5: “The Edge of Failure”</h2>
-                    
-                    <div class="image-upload-area" id="img-area-5" onclick="uploadImage(5)">
-                        <img id="img-preview-5" alt="Part 5 Image">
-                        <div class="upload-placeholder" id="placeholder-5">
-                            <strong>Click to upload image for Part 5</strong><br>
-                            <span style="font-size:12px;"> (Locked after saving)</span>
-                        </div>
+                <div class="tap-zone left" onclick="prevPage()"></div>
+                <div class="tap-zone right" onclick="nextPage()"></div>
+                <h2 class="part-title">Part 5: “The Edge of Failure”</h2>
+                
+                <div class="image-upload-area" id="img-area-5" onclick="uploadImage(5)">
+                    <img id="img-preview-5" alt="Part 5 Image">
+                    <div class="upload-placeholder" id="placeholder-5">
+                        <strong>Click to upload image for Part 5</strong><br>
+                        <span style="font-size:12px;"> (Locked after saving)</span>
                     </div>
-                    
-                    <p>The desert at night was a different kind of silence.</p>
-                    
-                    <p>The two MH-60 Black Hawks came in low and fast, hugging the sand dunes, their rotors kicking up swirling clouds of dust that glowed red under the aircraft’s anti-collision lights. Kane sat near the open door, one hand gripping the frame, night-vision goggles down. The rest of his team was locked in, weapons ready, faces hidden behind masks and helmets. No one spoke over the internal comms unless it was necessary.</p>
-                    
-                    <p>They were thirty kilometers from the target compound.</p>
-                    
-                    <p>The insertion point was a dry wadi between two low ridges. The lead helicopter flared hard, hovering ten feet above the sand. Kane was first out, dropping into the soft powder, immediately moving to cover as the rest of the team fast-roped or jumped behind him. The second bird hovered nearby, dropping the last two operators and their heavier gear.</p>
-                    
-                    <p>The moment the last boot hit the ground, the helicopters pulled away, banking hard and disappearing into the night sky. The only sound left was the fading thump of rotors and the soft crunch of boots on sand.</p>
-                    
-                    <p>Kane raised a hand. The team formed up in a tight wedge and began moving toward the target, two kilometers away.</p>
-                    
-                    <p>They had been on the ground less than four minutes when the first sign of trouble appeared.</p>
-                    
-                    <p>Overwatch’s voice came through low and tight on the encrypted channel.</p>
-                    
-                    <p>“Contact. Two-man patrol, three hundred meters east of your line of advance. They’re moving parallel. Not standard pattern. They look alert.”</p>
-                    
-                    <p>Kane didn’t break stride. “Copy. We go around or we take them?”</p>
-                    
-                    <p>“Take them,” Overwatch said after a beat. “They’re too close to the fence line. One of them keeps checking his radio.”</p>
-                    
-                    <p>The team adjusted course without a word. They moved like shadows across the open ground, using every fold in the terrain. When they were within seventy meters, Kane gave the signal.</p>
-                    
-                    <p>Two suppressed shots from the overwatch position. Two soft thuds in the sand. The patrol dropped without a sound.</p>
-                    
-                    <p>But as the second man fell, his finger twitched on the radio trigger. A single burst of static crackled out before the device hit the ground.</p>
-                    
-                    <p>Near-fail number one.</p>
-                    
-                    <p>Kane was already moving. “Check the bodies. Strip comms. We keep going.”</p>
-                    
-                    <p>They reached the outer perimeter fence twenty minutes later. It was older than the satellite imagery had suggested — reinforced in places with new razor wire and motion sensors that hadn’t been in the original brief.</p>
-                    
-                    <p>The breacher went to work on a section between two camera arcs. The team waited in dead silence, weapons trained outward. A single wrong move here and the entire compound would light up.</p>
-                    
-                    <p>The fence gave way with a soft metallic snap. They slipped through one by one.</p>
-                    
-                    <p>Inside the compound the air felt heavier. There were more lights on than expected. More movement. Radio chatter that sounded sharper than the usual lazy patrols.</p>
-                    
-                    <p>Overwatch spoke again, voice low.</p>
-                    
-                    <p>“Something’s off. I’m seeing at least three extra positions on the eastern approach. They’re not supposed to be there.”</p>
-                    
-                    <p>Kane’s reply was calm. “We adapt. Stick to the plan until it breaks.”</p>
-                    
-                    <p>They reached the side of the main building — a squat, fortified apartment block that served as both living quarters and command center for the regional leader. The team stacked on the door. The breacher placed a small shaped charge on the lock.</p>
-                    
-                    <p>“Going in three… two…”</p>
-                    
-                    <p>The door blew inward with a dull thud. They flowed inside like water.</p>
-                    
-                    <p>The first room was empty. The second held two guards playing cards. Suppressed fire dropped them before they could stand. The third room was occupied by a woman and two children. The woman opened her mouth to scream.</p>
-                    
-                    <p>The overwatch operator put two rounds in her chest without hesitation. The children were neutralized a second later with clinical efficiency. No words. No hesitation. The threat was removed.</p>
-                    
-                    <p>They kept moving.</p>
-                    
-                    <p>Room by room they cleared the ground floor. Every encounter was fast, quiet, and final. But the building was more heavily occupied than briefed. Twice they had to pause while extra patrols passed in the hallway outside.</p>
-                    
-                    <p>Then the first real problem hit.</p>
-                    
-                    <p>The breacher was clearing a stairwell when two guards came down from above. He engaged, but one of them managed to get a burst off before going down. The rounds chewed into the wall inches from his head.</p>
-                    
-                    <p>“Contact!” he hissed over comms. “Stairwell clear, but they know something’s wrong.”</p>
-                    
-                    <p>Overwatch cut in immediately. “Movement on the upper floors. They’re waking up.”</p>
-                    
-                    <p>Kane’s voice stayed even. “Power cut in ninety seconds. We move faster.”</p>
-                    
-                    <p>They reached the second floor as the lights throughout the compound suddenly died.</p>
-                    
-                    <p>The twenty-minute window had begun.</p>
-                    
-                    <p>The building plunged into darkness broken only by the green glow of night vision. The team’s suppressed weapons became their only advantage as they pushed toward the leader’s quarters on the third floor.</p>
-                    
-                    <p>They almost lost the comms specialist on the stair landing.</p>
-                    
-                    <p>A militant came out of a side door swinging a rifle. The specialist took a round to the plate and went down hard. Kane dragged him behind cover while the rest of the team neutralized the shooter. The specialist was breathing but dazed, his left arm hanging useless.</p>
-                    
-                    <p>“Stay with us,” Kane told him. “We’re not leaving anyone.”</p>
-                    
-                    <p>Near-fail number two.</p>
-                    
-                    <p>They reached the leader’s suite. The door was reinforced. The breacher was prepping another charge when Overwatch’s voice came through urgent.</p>
-                    
-                    <p>“Leader is moving. He’s trying to reach the roof access. Two guards with him. They’re armed heavy.”</p>
-                    
-                    <p>Kane made the call instantly. “We go loud. Now.”</p>
-                    
-                    <p>The door charge blew. They stormed the room.</p>
-                    
-                    <p>The leader — a heavyset man in his forties — was already at the far door with his guards. One guard opened fire. The team returned fire in a controlled burst. One guard dropped. The second grabbed the leader and tried to drag him through the doorway.</p>
-                    
-                    <p>Kane shot the guard in the leg, then the shoulder. The man collapsed. The leader tried to run.</p>
-                    
-                    <p>Kane was on him in three strides, slamming him into the wall and zip-tying his hands behind his back with brutal efficiency.</p>
-                    
-                    <p>“Package secured,” he said into comms. “Moving to exfil.”</p>
-                    
-                    <p>The building was waking up fast now. Shouts echoed through the hallways. Footsteps pounded on stairs. The twenty-minute window was already half gone.</p>
-                    
-                    <p>They fought their way back down floor by floor. What had been quiet infiltration became a running gunfight. Suppressed fire gave way to louder, aggressive shooting as stealth was no longer an option.</p>
-                    
-                    <p>The breacher took a round through the meat of his thigh. He kept moving, limping but functional.</p>
-                    
-                    <p>Near-fail number three.</p>
-                    
-                    <p>They reached the ground floor as the power began to flicker back on in sections of the compound. Militants were pouring out of other buildings.</p>
-                    
-                    <p>“Exfil in three minutes,” Kane said. “We plant the charges and move.”</p>
-                    
-                    <p>The exfil specialist and the wounded comms man worked together to rig the fuel depot charges while the rest of the team held the perimeter with the captured leader. The leader kept trying to speak. Kane silenced him with a hard strike to the temple.</p>
-                    
-                    <p>They dragged the leader across the open ground toward the extraction point as the first explosions began to ripple through the compound behind them. The staged LPG blast was supposed to look like an accident. With the amount of gunfire and bodies, it was going to be a very messy accident.</p>
-                    
-                    <p>The extraction helicopter came in low and hot, door gunner already firing at approaching militants. The team ran the last hundred meters under fire, sand kicking up around their boots.</p>
-                    
-                    <p>The leader was hauled aboard first. Then the wounded. Kane was the last one up, firing controlled bursts until the bird lifted off.</p>
-                    
-                    <p>As they gained altitude, the main fuel depot went up in a massive fireball that lit the desert night. The staged explosion looked convincing even from the air.</p>
-                    
-                    <p>Kane sat on the floor of the helicopter, back against the bulkhead, breathing hard for the first time all night. Blood — some of it his team’s, some of it not — covered his gloves and vest. The leader was secured and unconscious on the opposite side.</p>
-                    
-                    <p>The team looked at each other in the dim red light of the cabin. No one smiled. No one spoke for a long moment.</p>
-                    
-                    <p>They had done it.</p>
-                    
-                    <p>But it had been far too close.</p>
-                    
-                    <p>Kane finally keyed his radio to the extraction frequency.</p>
-                    
-                    <p>“Package secured. All team members accounted for. Mission complete.”</p>
-                    
-                    <p>He leaned his head back against the vibrating metal and closed his eyes for the first time in nearly twenty hours.</p>
-                    
-                    <p>The desert below burned.</p>
                 </div>
+                
+                <p>The desert at night was a different kind of silence.</p>
+                <p>The two MH-60 Black Hawks came in low and fast, hugging the sand dunes, their rotors kicking up swirling clouds of dust that glowed red under the aircraft’s anti-collision lights. Kane sat near the open door, one hand gripping the frame, night-vision goggles down. The rest of his team was locked in, weapons ready, faces hidden behind masks and helmets. No one spoke over the internal comms unless it was necessary.</p>
+                <p>They were thirty kilometers from the target compound.</p>
+                <p>The insertion point was a dry wadi between two low ridges. The lead helicopter flared hard, hovering ten feet above the sand. Kane was first out, dropping into the soft powder, immediately moving to cover as the rest of the team fast-roped or jumped behind him. The second bird hovered nearby, dropping the last two operators and their heavier gear.</p>
+                <p>The moment the last boot hit the ground, the helicopters pulled away, banking hard and disappearing into the night sky. The only sound left was the fading thump of rotors and the soft crunch of boots on sand.</p>
+                <p>Kane raised a hand. The team formed up in a tight wedge and began moving toward the target, two kilometers away.</p>
+                <p>They had been on the ground less than four minutes when the first sign of trouble appeared.</p>
+                <p>Overwatch’s voice came through low and tight on the encrypted channel.</p>
+                <p>“Contact. Two-man patrol, three hundred meters east of your line of advance. They’re moving parallel. Not standard pattern. They look alert.”</p>
+                <p>Kane didn’t break stride. “Copy. We go around or we take them?”</p>
+                <p>“Take them,” Overwatch said after a beat. “They’re too close to the fence line. One of them keeps checking his radio.”</p>
+                <p>The team adjusted course without a word. They moved like shadows across the open ground, using every fold in the terrain. When they were within seventy meters, Kane gave the signal.</p>
+                <p>Two suppressed shots from the overwatch position. Two soft thuds in the sand. The patrol dropped without a sound.</p>
+                <p>But as the second man fell, his finger twitched on the radio trigger. A single burst of static crackled out before the device hit the ground.</p>
+                <p>Near-fail number one.</p>
+                <p>Kane was already moving. “Check the bodies. Strip comms. We keep going.”</p>
+                <p>They reached the outer perimeter fence twenty minutes later. It was older than the satellite imagery had suggested — reinforced in places with new razor wire and motion sensors that hadn’t been in the original brief.</p>
+                <p>The breacher went to work on a section between two camera arcs. The team waited in dead silence, weapons trained outward. A single wrong move here and the entire compound would light up.</p>
+                <p>The fence gave way with a soft metallic snap. They slipped through one by one.</p>
+                <p>Inside the compound the air felt heavier. There were more lights on than expected. More movement. Radio chatter that sounded sharper than the usual lazy patrols.</p>
+                <p>Overwatch spoke again, voice low.</p>
+                <p>“Something’s off. I’m seeing at least three extra positions on the eastern approach. They’re not supposed to be there.”</p>
+                <p>Kane’s reply was calm. “We adapt. Stick to the plan until it breaks.”</p>
+                <p>They reached the side of the main building — a squat, fortified apartment block that served as both living quarters and command center for the regional leader. The team stacked on the door. The breacher placed a small shaped charge on the lock.</p>
+                <p>“Going in three… two…”</p>
+                <p>The door blew inward with a dull thud. They flowed inside like water.</p>
+                <p>The first room was empty. The second held two guards playing cards. Suppressed fire dropped them before they could stand. The third room was occupied by a woman and two children. The woman opened her mouth to scream.</p>
+                <p>The overwatch operator put two rounds in her chest without hesitation. The children were neutralized a second later with clinical efficiency. No words. No hesitation. The threat was removed.</p>
+                <p>They kept moving.</p>
+                <p>Room by room they cleared the ground floor. Every encounter was fast, quiet, and final. But the building was more heavily occupied than briefed. Twice they had to pause while extra patrols passed in the hallway outside.</p>
+                <p>Then the first real problem hit.</p>
+                <p>The breacher was clearing a stairwell when two guards came down from above. He engaged, but one of them managed to get a burst off before going down. The rounds chewed into the wall inches from his head.</p>
+                <p>“Contact!” he hissed over comms. “Stairwell clear, but they know something’s wrong.”</p>
+                <p>Overwatch cut in immediately. “Movement on the upper floors. They’re waking up.”</p>
+                <p>Kane’s voice stayed even. “Power cut in ninety seconds. We move faster.”</p>
+                <p>They reached the second floor as the lights throughout the compound suddenly died.</p>
+                <p>The twenty-minute window had begun.</p>
+                <p>The building plunged into darkness broken only by the green glow of night vision. The team’s suppressed weapons became their only advantage as they pushed toward the leader’s quarters on the third floor.</p>
+                <p>They almost lost the comms specialist on the stair landing.</p>
+                <p>A militant came out of a side door swinging a rifle. The specialist took a round to the plate and went down hard. Kane dragged him behind cover while the rest of the team neutralized the shooter. The specialist was breathing but dazed, his left arm hanging useless.</p>
+                <p>“Stay with us,” Kane told him. “We’re not leaving anyone.”</p>
+                <p>Near-fail number two.</p>
+                <p>They reached the leader’s suite. The door was reinforced. The breacher was prepping another charge when Overwatch’s voice came through urgent.</p>
+                <p>“Leader is moving. He’s trying to reach the roof access. Two guards with him. They’re armed heavy.”</p>
+                <p>Kane made the call instantly. “We go loud. Now.”</p>
+                <p>The door charge blew. They stormed the room.</p>
+                <p>The leader — a heavyset man in his forties — was already at the far door with his guards. One guard opened fire. The team returned fire in a controlled burst. One guard dropped. The second grabbed the leader and tried to drag him through the doorway.</p>
+                <p>Kane shot the guard in the leg, then the shoulder. The man collapsed. The leader tried to run.</p>
+                <p>Kane was on him in three strides, slamming him into the wall and zip-tying his hands behind his back with brutal efficiency.</p>
+                <p>“Package secured,” he said into comms. “Moving to exfil.”</p>
+                <p>The building was waking up fast now. Shouts echoed through the hallways. Footsteps pounded on stairs. The twenty-minute window was already half gone.</p>
+                <p>They fought their way back down floor by floor. What had been quiet infiltration became a running gunfight. Suppressed fire gave way to louder, aggressive shooting as stealth was no longer an option.</p>
+                <p>The breacher took a round through the meat of his thigh. He kept moving, limping but functional.</p>
+                <p>Near-fail number three.</p>
+                <p>They reached the ground floor as the power began to flicker back on in sections of the compound. Militants were pouring out of other buildings.</p>
+                <p>“Exfil in three minutes,” Kane said. “We plant the charges and move.”</p>
+                <p>The exfil specialist and the wounded comms man worked together to rig the fuel depot charges while the rest of the team held the perimeter with the captured leader. The leader kept trying to speak. Kane silenced him with a hard strike to the temple.</p>
+                <p>They dragged the leader across the open ground toward the extraction point as the first explosions began to ripple through the compound behind them. The staged LPG blast was supposed to look like an accident. With the amount of gunfire and bodies, it was going to be a very messy accident.</p>
+                <p>The extraction helicopter came in low and hot, door gunner already firing at approaching militants. The team ran the last hundred meters under fire, sand kicking up around their boots.</p>
+                <p>The leader was hauled aboard first. Then the wounded. Kane was the last one up, firing controlled bursts until the bird lifted off.</p>
+                <p>As they gained altitude, the main fuel depot went up in a massive fireball that lit the desert night. The staged explosion looked convincing even from the air.</p>
+                <p>Kane sat on the floor of the helicopter, back against the bulkhead, breathing hard for the first time all night. Blood — some of it his team’s, some of it not — covered his gloves and vest. The leader was secured and unconscious on the opposite side.</p>
+                <p>The team looked at each other in the dim red light of the cabin. No one smiled. No one spoke for a long moment.</p>
+                <p>They had done it.</p>
+                <p>But it had been far too close.</p>
+                <p>Kane finally keyed his radio to the extraction frequency.</p>
+                <p>“Package secured. All team members accounted for. Mission complete.”</p>
+                <p>He leaned his head back against the vibrating metal and closed his eyes for the first time in nearly twenty hours.</p>
+                <p>The desert below burned.</p>
                 <div class="page-number">5 / 6</div>
             </div>
 
             <!-- PAGE 6: End -->
             <div class="page" id="page6" style="display: none; z-index: 1;">
-                <div class="page-content" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;">
-                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size:34px; margin-bottom:25px;">End of Episode 1</h2>
-                    <p style="font-style:italic; max-width:420px; color:#555; line-height:1.7;">
-                        Harper Quinn heads to Tokyo tomorrow with her checklists and quiet ache for something more.<br><br>
-                        Kane Hale moves through shadows with a team and a contract that demands perfection.<br><br>
-                        <strong>Their worlds are about to collide.<br>Love is weird like that.</strong>
-                    </p>
-                </div>
+                <div class="tap-zone left" onclick="prevPage()"></div>
+                <div class="tap-zone right" onclick="nextPage()"></div>
+                <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size:34px; margin-bottom:25px; color:#e8d9b8;">End of Episode 1</h2>
+                <p style="font-style:italic; max-width:420px; color:#c9b89a; line-height:1.7;">
+                    Harper Quinn heads to Tokyo tomorrow with her checklists and quiet ache for something more.<br><br>
+                    Kane Hale moves through shadows with a team and a contract that demands perfection.<br><br>
+                    <strong>Their worlds are about to collide.<br>Love is weird like that.</strong>
+                </p>
                 <div class="page-number">6 / 6</div>
             </div>
 
@@ -653,36 +466,19 @@
         let currentUploadPart = null;
 
         function loadSavedImages() {
-            // Load Part 1 image
-            const savedImage1 = localStorage.getItem('part1_image');
-            if (savedImage1) {
-                const preview1 = document.getElementById('img-preview-1');
-                const placeholder1 = document.getElementById('placeholder-1');
-                const area1 = document.getElementById('img-area-1');
-                
-                if (preview1 && placeholder1 && area1) {
-                    preview1.src = savedImage1;
-                    preview1.style.display = 'block';
-                    placeholder1.style.display = 'none';
-                    area1.style.cursor = 'default';
-                    area1.onclick = null;
-                }
+            const saved1 = localStorage.getItem('part1_image');
+            if (saved1) {
+                const p = document.getElementById('img-preview-1');
+                const ph = document.getElementById('placeholder-1');
+                const a = document.getElementById('img-area-1');
+                if (p && ph && a) { p.src = saved1; p.style.display = 'block'; ph.style.display = 'none'; a.style.cursor = 'default'; a.onclick = null; }
             }
-            
-            // Load Part 5 image
-            const savedImage5 = localStorage.getItem('part5_image');
-            if (savedImage5) {
-                const preview5 = document.getElementById('img-preview-5');
-                const placeholder5 = document.getElementById('placeholder-5');
-                const area5 = document.getElementById('img-area-5');
-                
-                if (preview5 && placeholder5 && area5) {
-                    preview5.src = savedImage5;
-                    preview5.style.display = 'block';
-                    placeholder5.style.display = 'none';
-                    area5.style.cursor = 'default';
-                    area5.onclick = null;
-                }
+            const saved5 = localStorage.getItem('part5_image');
+            if (saved5) {
+                const p = document.getElementById('img-preview-5');
+                const ph = document.getElementById('placeholder-5');
+                const a = document.getElementById('img-area-5');
+                if (p && ph && a) { p.src = saved5; p.style.display = 'block'; ph.style.display = 'none'; a.style.cursor = 'default'; a.onclick = null; }
             }
         }
 
@@ -694,16 +490,13 @@
         function handleImageUpload(event) {
             const file = event.target.files[0];
             if (!file || !currentUploadPart) return;
-
             const reader = new FileReader();
             reader.onload = function(e) {
                 const base64 = e.target.result;
                 localStorage.setItem('part' + currentUploadPart + '_image', base64);
-                
                 const preview = document.getElementById('img-preview-' + currentUploadPart);
                 const placeholder = document.getElementById('placeholder-' + currentUploadPart);
                 const area = document.getElementById('img-area-' + currentUploadPart);
-                
                 if (preview && placeholder && area) {
                     preview.src = base64;
                     preview.style.display = 'block';
@@ -719,21 +512,14 @@
         function showPage(pageNum) {
             for (let i = 1; i <= totalPages; i++) {
                 const page = document.getElementById('page' + i);
-                if (page) {
-                    page.style.display = 'none';
-                    page.style.transform = 'rotateY(0deg)';
-                }
+                if (page) { page.style.display = 'none'; page.style.transform = 'rotateY(0deg)'; }
             }
-            
             const current = document.getElementById('page' + pageNum);
             if (current) {
                 current.style.display = 'block';
                 current.style.transition = 'none';
                 current.style.transform = 'rotateY(0deg)';
-                
-                setTimeout(() => {
-                    current.style.transition = 'transform 0.7s cubic-bezier(0.23, 1.0, 0.32, 1)';
-                }, 30);
+                setTimeout(() => { current.style.transition = 'transform 0.7s cubic-bezier(0.23, 1.0, 0.32, 1)'; }, 30);
             }
             currentPage = pageNum;
         }
@@ -742,34 +528,23 @@
             if (currentPage < totalPages) {
                 const current = document.getElementById('page' + currentPage);
                 current.style.transform = 'rotateY(-180deg)';
-                
-                setTimeout(() => {
-                    showPage(currentPage + 1);
-                }, 650);
+                setTimeout(() => { showPage(currentPage + 1); }, 650);
             }
         }
 
         function prevPage() {
-            if (currentPage > 1) {
-                showPage(currentPage - 1);
-            }
+            if (currentPage > 1) { showPage(currentPage - 1); }
         }
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === "ArrowRight" || e.key === " ") {
-                e.preventDefault();
-                nextPage();
-            }
-            if (e.key === "ArrowLeft") {
-                prevPage();
-            }
+            if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); nextPage(); }
+            if (e.key === "ArrowLeft") { prevPage(); }
         });
 
         function init() {
             showPage(1);
             loadSavedImages();
         }
-
         window.onload = init;
     </script>
 </body>
