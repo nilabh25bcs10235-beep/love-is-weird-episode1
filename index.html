@@ -180,7 +180,7 @@
                     <img id="img-preview-1" alt="Part 1 Image">
                     <div class="upload-placeholder" id="placeholder-1">
                         <strong>Click to upload image for Part 1</strong><br>
-                        <span style="font-size:12px;"> (Locked after saving)</span>
+                        <span style="font-size:12px;">(Locked after saving)</span>
                     </div>
                 </div>
                 <p>The lab was quiet at this hour, the way Harper liked it.</p>
@@ -361,10 +361,9 @@
                     <img id="img-preview-5" alt="Part 5 Image">
                     <div class="upload-placeholder" id="placeholder-5">
                         <strong>Click to upload image for Part 5</strong><br>
-                        <span style="font-size:12px;"> (Locked after saving)</span>
+                        <span style="font-size:12px;">(Locked after saving)</span>
                     </div>
                 </div>
-                
                 <div style="text-align:center; margin-top:-15px; margin-bottom:20px;">
                     <button onclick="allowPart5Change()" style="font-size:13px; padding:6px 14px; background:#3a3a3a; color:#c9b89a;">Change Image (Part 5)</button>
                 </div>
@@ -372,7 +371,7 @@
                 <p>The desert at night was a different kind of silence.</p>
                 <p>The two MH-60 Black Hawks came in low and fast, hugging the sand dunes, their rotors kicking up swirling clouds of dust that glowed red under the aircraft’s anti-collision lights. Kane sat near the open door, one hand gripping the frame, night-vision goggles down. The rest of his team was locked in, weapons ready, faces hidden behind masks and helmets. No one spoke over the internal comms unless it was necessary.</p>
                 <p>They were thirty kilometers from the target compound.</p>
-                <p>The insertion point was a dry wadi between two low ridges. The lead helicopter flared hard, hovering ten feet above the sand. Kane was first out, dropping into the soft powder, immediately moving to cover as the rest of the team fast-roped or jumped behind him. The second bird hovered nearby, dropping the last two operators and their heavier gear.</p>
+                <p>The insertion point is a dry wadi between two low ridges. The lead helicopter flared hard, hovering ten feet above the sand. Kane was first out, dropping into the soft powder, immediately moving to cover as the rest of the team fast-roped or jumped behind him. The second bird hovered nearby, dropping the last two operators and their heavier gear.</p>
                 <p>The moment the last boot hit the ground, the helicopters pulled away, banking hard and disappearing into the night sky. The only sound left was the fading thump of rotors and the soft crunch of boots on sand.</p>
                 <p>Kane raised a hand. The team formed up in a tight wedge and began moving toward the target, two kilometers away.</p>
                 <p>They had been on the ground less than four minutes when the first sign of trouble appeared.</p>
@@ -470,19 +469,30 @@
         let currentUploadPart = null;
 
         function loadSavedImages() {
+            // Part 1
             const saved1 = localStorage.getItem('part1_image');
-            if (saved1) {
-                const p = document.getElementById('img-preview-1');
-                const ph = document.getElementById('placeholder-1');
-                const a = document.getElementById('img-area-1');
-                if (p && ph && a) { p.src = saved1; p.style.display = 'block'; ph.style.display = 'none'; a.style.cursor = 'default'; a.onclick = null; }
+            const p1 = document.getElementById('img-preview-1');
+            const ph1 = document.getElementById('placeholder-1');
+            const a1 = document.getElementById('img-area-1');
+            if (saved1 && p1 && ph1 && a1) {
+                p1.src = saved1;
+                p1.style.display = 'block';
+                ph1.style.display = 'none';
+                a1.style.cursor = 'default';
+                a1.onclick = null;
             }
+
+            // Part 5
             const saved5 = localStorage.getItem('part5_image');
-            if (saved5) {
-                const p = document.getElementById('img-preview-5');
-                const ph = document.getElementById('placeholder-5');
-                const a = document.getElementById('img-area-5');
-                if (p && ph && a) { p.src = saved5; p.style.display = 'block'; ph.style.display = 'none'; a.style.cursor = 'default'; a.onclick = null; }
+            const p5 = document.getElementById('img-preview-5');
+            const ph5 = document.getElementById('placeholder-5');
+            const a5 = document.getElementById('img-area-5');
+            if (saved5 && p5 && ph5 && a5) {
+                p5.src = saved5;
+                p5.style.display = 'block';
+                ph5.style.display = 'none';
+                a5.style.cursor = 'default';
+                a5.onclick = null;
             }
         }
 
@@ -497,13 +507,10 @@
             const placeholder = document.getElementById('placeholder-5');
 
             if (area && preview && placeholder) {
-                // Re-enable upload
                 preview.style.display = 'none';
                 placeholder.style.display = 'block';
                 area.style.cursor = 'pointer';
                 area.onclick = () => uploadImage(5);
-
-                // Clear the saved image so new one can be saved
                 localStorage.removeItem('part5_image');
                 alert("Part 5 image area is now unlocked. Upload the correct image.");
             }
@@ -544,6 +551,11 @@
                 setTimeout(() => { current.style.transition = 'transform 0.7s cubic-bezier(0.23, 1.0, 0.32, 1)'; }, 30);
             }
             currentPage = pageNum;
+
+            // Reload saved images after page change (fixes persistence)
+            setTimeout(() => {
+                loadSavedImages();
+            }, 80);
         }
 
         function nextPage() {
