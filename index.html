@@ -427,20 +427,19 @@
         let currentUploadPart = null;
 
         function loadSavedImages() {
-            for (let i = 1; i <= 1; i++) {
-                const saved = localStorage.getItem('part' + i + '_image');
-                if (saved) {
-                    const preview = document.getElementById('img-preview-' + i);
-                    const placeholder = document.getElementById('placeholder-' + i);
-                    const area = document.getElementById('img-area-' + i);
-                    
-                    if (preview && placeholder && area) {
-                        preview.src = saved;
-                        preview.style.display = 'block';
-                        placeholder.style.display = 'none';
-                        area.style.cursor = 'default';
-                        area.onclick = null;
-                    }
+            // Load saved image for Part 1
+            const savedImage = localStorage.getItem('part1_image');
+            if (savedImage) {
+                const preview = document.getElementById('img-preview-1');
+                const placeholder = document.getElementById('placeholder-1');
+                const area = document.getElementById('img-area-1');
+                
+                if (preview && placeholder && area) {
+                    preview.src = savedImage;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                    area.style.cursor = 'default';
+                    area.onclick = null;
                 }
             }
         }
@@ -526,6 +525,7 @@
 
         function init() {
             showPage(1);
+            // Load saved image immediately on page load
             loadSavedImages();
         }
 
