@@ -5,18 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love is Weird • Episode 1</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Georgia:wght@400;500&amp;display=swap');
-        
-        :root {
-            --bg: #0f0f0f;
-            --page-bg: #f8f1e3;
-            --text: #2c2c2c;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Georgia:wght@400;500&display=swap');
         
         body {
             margin: 0;
             padding: 0;
-            background: var(--bg);
+            background: #0f0f0f;
             color: #e8d9b8;
             font-family: Georgia, serif;
             min-height: 100vh;
@@ -26,14 +20,13 @@
         
         .header {
             text-align: center;
-            padding: 30px 20px 10px;
+            padding: 25px 20px 10px;
         }
         
         .header h1 {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 42px;
-            margin: 0 0 8px 0;
-            color: #e8d9b8;
+            font-size: 40px;
+            margin: 0 0 6px 0;
         }
         
         .book-container {
@@ -42,14 +35,14 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             width: 100%;
         }
         
         .book {
             width: 100%;
-            max-width: 980px;
+            max-width: 960px;
             height: 680px;
             position: relative;
             perspective: 2200px;
@@ -61,9 +54,9 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: var(--page-bg);
-            color: var(--text);
-            padding: 55px 65px;
+            background: #f8f1e3;
+            color: #2c2c2c;
+            padding: 50px 60px;
             box-sizing: border-box;
             overflow-y: auto;
             backface-visibility: hidden;
@@ -71,30 +64,59 @@
             transform-origin: left center;
             box-shadow: 0 15px 40px rgba(0,0,0,0.4);
             border-radius: 8px;
-            font-size: 17.5px;
-            line-height: 1.75;
-        }
-        
-        .page-content {
-            max-width: 100%;
+            font-size: 17px;
+            line-height: 1.7;
         }
         
         .part-title {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 26px;
+            font-size: 25px;
             border-bottom: 2px solid #d4c3a3;
             padding-bottom: 10px;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             color: #2c2c2c;
         }
         
-        .harper-image {
+        .image-upload-area {
             width: 100%;
-            max-width: 480px;
-            margin: 25px auto 40px;
-            display: block;
+            max-width: 420px;
+            height: 260px;
+            margin: 20px auto 30px;
+            border: 2px dashed #c9b89a;
             border-radius: 12px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            background: #f4e9d8;
+            transition: all 0.2s;
+        }
+        
+        .image-upload-area:hover {
+            border-color: #a88c5f;
+            background: #f0e4d0;
+        }
+        
+        .image-upload-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        
+        .upload-placeholder {
+            text-align: center;
+            color: #8a7d65;
+            font-size: 15px;
+        }
+        
+        .upload-placeholder span {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            opacity: 0.7;
         }
         
         .internal-thought {
@@ -105,16 +127,16 @@
         .controls {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            padding: 25px;
+            gap: 18px;
+            padding: 20px;
         }
         
         button {
             background: #2c2c2c;
             color: #e8d9b8;
             border: none;
-            padding: 14px 35px;
-            font-size: 17px;
+            padding: 12px 28px;
+            font-size: 15px;
             cursor: pointer;
             border-radius: 8px;
             transition: all 0.2s;
@@ -128,19 +150,28 @@
         
         .page-number {
             position: absolute;
-            bottom: 30px;
-            right: 70px;
-            font-size: 14px;
+            bottom: 22px;
+            right: 55px;
+            font-size: 13px;
             color: #8a7d65;
         }
         
-        @media (max-width: 900px) {
-            .book {
-                height: 75vh;
-            }
-            .page {
-                padding: 40px 35px;
-            }
+        .change-image-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(44, 44, 44, 0.85);
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            font-size: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: none;
+        }
+        
+        .image-upload-area:hover .change-image-btn {
+            display: block;
         }
     </style>
 </head>
@@ -156,36 +187,41 @@
             <!-- Page 1: Part 1 -->
             <div class="page" id="page1" style="z-index: 5;">
                 <div class="page-content">
-                    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 42px; text-align: center; margin-bottom: 10px;">Love is Weird</h1>
-                    <p style="text-align:center; font-style:italic; margin-bottom:30px; color:#666;">Episode 1</p>
+                    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 38px; text-align: center; margin-bottom: 8px;">Love is Weird</h1>
+                    <p style="text-align:center; font-style:italic; margin-bottom:25px; color:#666;">Episode 1</p>
                     
                     <h2 class="part-title">Part 1: “The Checklist”</h2>
                     
-                    <img src="https://files.oaiusercontent.com/file-IFJL9?se=2026-06-16T00%3A00%3A00Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D3628800%2C%20immutable&rscd=attachment%3B%20filename%3Dharper-lab.jpg&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
-                         class="harper-image" alt="Harper Quinn">
+                    <!-- Image Upload Area -->
+                    <div class="image-upload-area" id="image-area-1" onclick="uploadImage(1)">
+                        <img id="preview-1" alt="Part 1 Image">
+                        <div class="upload-placeholder" id="placeholder-1">
+                            <strong>Click to upload image for Part 1</strong>
+                            <span>Recommended: Harper in the lab</span>
+                        </div>
+                        <button class="change-image-btn" onclick="event.stopImmediatePropagation(); uploadImage(1)">Change</button>
+                    </div>
                     
-                    <p>The lab was quiet at this hour, the way Harper liked it. Golden light slanted through the tall windows, catching on the edges of glass beakers and the whiteboards still covered in yesterday’s marker notes.</p>
-                    
-                    <p class="internal-thought">*Better. That’s better. Can’t stand in front of two hundred people with a sloppy transition between the biomarker panels and the validation data.*</p>
-                    
-                    <p>She set the pen down and leaned back in her chair. The white button-up blouse clung softly to the curve of her waist and the full swell of her chest before she absently smoothed it back into place.</p>
+                    <p>The lab was quiet at this hour, the way Harper liked it...</p>
+                    <p class="internal-thought">*Better. That’s better...*</p>
                 </div>
                 <div class="page-number">1 / 5</div>
             </div>
 
-            <!-- Page 2: Part 1 continued -->
+            <!-- Page 2 -->
             <div class="page" id="page2" style="display: none; z-index: 4;">
                 <div class="page-content">
                     <h2 class="part-title">Part 1: “The Checklist” (continued)</h2>
                     
-                    <p>A soft knock on the open doorframe pulled her attention up.</p>
-                    <p>“Hey, Harper.” It was Daniel from the proteomics team, holding two paper coffee cups.</p>
+                    <div class="image-upload-area" id="image-area-2" onclick="uploadImage(2)">
+                        <img id="preview-2" alt="Part 2 Image">
+                        <div class="upload-placeholder" id="placeholder-2">
+                            <strong>Click to upload image</strong>
+                        </div>
+                        <button class="change-image-btn" onclick="event.stopImmediatePropagation(); uploadImage(2)">Change</button>
+                    </div>
                     
-                    <p class="internal-thought">*They’re always sweet. And I always say no. It’s not that I don’t like them. It’s just… easier this way.*</p>
-                    
-                    <p>She saved the file and headed for the elevator. Outside, the golden light of sunset painted the street. She stopped at her usual café and sat by the window with her oat milk latte.</p>
-                    
-                    <p>Her phone buzzed with a text from her mom: <em>“Safe travels tomorrow, my serious little genius. We love you. Try to smile at someone cute on the plane.”</em></p>
+                    <p>She saved the file and headed for the elevator...</p>
                 </div>
                 <div class="page-number">2 / 5</div>
             </div>
@@ -195,15 +231,15 @@
                 <div class="page-content">
                     <h2 class="part-title">Part 2: “The Chaos at Home”</h2>
                     
-                    <p>Harper’s key turned in the lock with a familiar click. The smell of garlic and lemon chicken hit her immediately. Cooper came barreling down the hallway.</p>
+                    <div class="image-upload-area" id="image-area-3" onclick="uploadImage(3)">
+                        <img id="preview-3" alt="Part 3 Image">
+                        <div class="upload-placeholder" id="placeholder-3">
+                            <strong>Click to upload image for Part 2</strong>
+                        </div>
+                        <button class="change-image-btn" onclick="event.stopImmediatePropagation(); uploadImage(3)">Change</button>
+                    </div>
                     
-                    <p>“Harper’s home!” her mom called from the kitchen.</p>
-                    
-                    <p>The kitchen was warm and lived-in. Haley, Matt, and their dad were already there. The table was set for five.</p>
-                    
-                    <p class="internal-thought">*They’re right. I know they’re right. I am the serious one. The responsible one.*</p>
-                    
-                    <p>Halfway through dinner, Haley grinned across the table. “So… you ready to have an actual life in Tokyo or are you going to spend the whole time in your hotel room like a little work goblin?”</p>
+                    <p>Harper’s key turned in the lock...</p>
                 </div>
                 <div class="page-number">3 / 5</div>
             </div>
@@ -213,29 +249,26 @@
                 <div class="page-content">
                     <h2 class="part-title">Part 3: “The Brief”</h2>
                     
-                    <p>The camera found him from a distance. Kane Hale moved through the pulsing nightlife district with quiet certainty.</p>
+                    <div class="image-upload-area" id="image-area-4" onclick="uploadImage(4)">
+                        <img id="preview-4" alt="Part 4 Image">
+                        <div class="upload-placeholder" id="placeholder-4">
+                            <strong>Click to upload image for Part 3</strong>
+                        </div>
+                        <button class="change-image-btn" onclick="event.stopImmediatePropagation(); uploadImage(4)">Change</button>
+                    </div>
                     
-                    <p>He stepped inside the high-end strip club without hesitation. The interior hit like a fever dream — dim red and purple lights, bass thumping through the floor.</p>
-                    
-                    <p>He cut straight through the crowd until he slipped through a staff-only door into the kitchen, then into the secure room at the back.</p>
-                    
-                    <p>Four men stood around a long black table. Kane stopped at the head.</p>
-                    
-                    <p>“Contract 47-Alpha. We go in quiet. We take the regional commander alive. No screams. No bodies left identifiable.”</p>
-                    
-                    <p class="internal-thought">*Another night. Another set of numbers. Another body count that would stay sealed in this world and never touch the one he was trying to keep separate.*</p>
+                    <p>The camera found him from a distance...</p>
                 </div>
                 <div class="page-number">4 / 5</div>
             </div>
 
             <!-- Page 5: End -->
             <div class="page" id="page5" style="display: none; z-index: 1;">
-                <div class="page-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center;">
-                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 38px; margin-bottom: 30px;">End of Episode 1</h2>
-                    
-                    <p style="font-style: italic; max-width: 480px; line-height: 1.7; color: #555;">
-                        Harper Quinn heads to Tokyo tomorrow with her checklists and quiet ache for something more.<br><br>
-                        Kane Hale moves through shadows with a team and a contract that demands perfection.<br><br>
+                <div class="page-content" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;">
+                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size:36px; margin-bottom:25px;">End of Episode 1</h2>
+                    <p style="font-style:italic; max-width:460px; color:#555;">
+                        Harper Quinn heads to Tokyo tomorrow...<br><br>
+                        Kane Hale moves through shadows...<br><br>
                         <strong>Their worlds are about to collide.<br>Love is weird like that.</strong>
                     </p>
                 </div>
@@ -250,9 +283,55 @@
         <button onclick="nextPage()">Next →</button>
     </div>
 
+    <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+
     <script>
         let currentPage = 1;
         const totalPages = 5;
+        let currentUploadPage = null;
+
+        function loadSavedImages() {
+            for (let i = 1; i <= 4; i++) {
+                const savedImage = localStorage.getItem(`part${i}_image`);
+                if (savedImage) {
+                    const preview = document.getElementById(`preview-${i}`);
+                    const placeholder = document.getElementById(`placeholder-${i}`);
+                    
+                    if (preview && placeholder) {
+                        preview.src = savedImage;
+                        preview.style.display = 'block';
+                        placeholder.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        function uploadImage(partNumber) {
+            currentUploadPage = partNumber;
+            document.getElementById('imageInput').click();
+        }
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file || !currentUploadPage) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64Image = e.target.result;
+                localStorage.setItem(`part${currentUploadPage}_image`, base64Image);
+                
+                const preview = document.getElementById(`preview-${currentUploadPage}`);
+                const placeholder = document.getElementById(`placeholder-${currentUploadPage}`);
+                
+                if (preview && placeholder) {
+                    preview.src = base64Image;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                }
+            };
+            reader.readAsDataURL(file);
+            event.target.value = '';
+        }
 
         function showPage(pageNum) {
             for (let i = 1; i <= totalPages; i++) {
@@ -303,7 +382,12 @@
             }
         });
 
-        showPage(1);
+        function init() {
+            showPage(1);
+            loadSavedImages();
+        }
+
+        window.onload = init;
     </script>
 </body>
 </html>
