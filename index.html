@@ -20,13 +20,13 @@
         
         .header {
             text-align: center;
-            padding: 25px 20px 10px;
+            padding: 20px;
         }
         
         .header h1 {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 40px;
-            margin: 0 0 6px 0;
+            font-size: 38px;
+            margin: 0;
         }
         
         .book-container {
@@ -34,16 +34,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            max-width: 1100px;
+            padding: 15px;
+            max-width: 1050px;
             margin: 0 auto;
             width: 100%;
         }
         
         .book {
             width: 100%;
-            max-width: 960px;
-            height: 680px;
+            max-width: 920px;
+            height: 700px;
             position: relative;
             perspective: 2200px;
             box-shadow: 0 25px 70px rgba(0,0,0,0.6);
@@ -56,7 +56,7 @@
             height: 100%;
             background: #f8f1e3;
             color: #2c2c2c;
-            padding: 50px 60px;
+            padding: 45px 55px;
             box-sizing: border-box;
             overflow-y: auto;
             backface-visibility: hidden;
@@ -65,55 +65,45 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.4);
             border-radius: 8px;
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.65;
         }
         
         .part-title {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 25px;
+            font-size: 24px;
             border-bottom: 2px solid #d4c3a3;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            padding-bottom: 8px;
+            margin-bottom: 18px;
             color: #2c2c2c;
         }
         
-        .main-image-area {
+        .image-upload-area {
             width: 100%;
-            max-width: 480px;
-            height: 280px;
-            margin: 20px auto 35px;
-            border: 3px solid #d4c3a3;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            background: #f4e9d8;
+            max-width: 380px;
+            height: 220px;
+            margin: 15px auto 25px;
+            border: 2px dashed #c9b89a;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            background: #f4e9d8;
         }
         
-        .main-image-area img {
+        .image-upload-area img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            display: none;
         }
         
-        .upload-prompt {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #8a7d65;
+        .upload-placeholder {
             text-align: center;
-            padding: 20px;
-        }
-        
-        .upload-prompt:hover {
-            background: rgba(212, 195, 163, 0.1);
+            color: #8a7d65;
+            font-size: 14px;
         }
         
         .internal-thought {
@@ -124,41 +114,32 @@
         .controls {
             display: flex;
             justify-content: center;
-            gap: 18px;
-            padding: 20px;
+            gap: 15px;
+            padding: 15px;
         }
         
         button {
             background: #2c2c2c;
             color: #e8d9b8;
             border: none;
-            padding: 12px 28px;
+            padding: 11px 26px;
             font-size: 15px;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 7px;
             transition: all 0.2s;
             font-family: Georgia, serif;
         }
         
         button:hover {
             background: #444;
-            transform: translateY(-2px);
         }
         
         .page-number {
             position: absolute;
-            bottom: 22px;
-            right: 55px;
+            bottom: 18px;
+            right: 50px;
             font-size: 13px;
             color: #8a7d65;
-        }
-        
-        .locked-notice {
-            text-align: center;
-            font-size: 13px;
-            color: #8a7d65;
-            margin-top: 10px;
-            font-style: italic;
         }
     </style>
 </head>
@@ -171,69 +152,91 @@
     <div class="book-container">
         <div class="book" id="book">
             
-            <!-- Page 1: Title + Single Image Upload -->
+            <!-- PAGE 1: Part 1 -->
             <div class="page" id="page1" style="z-index: 5;">
                 <div class="page-content">
-                    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 42px; text-align: center; margin-bottom: 10px;">Love is Weird</h1>
-                    <p style="text-align:center; font-style:italic; margin-bottom:30px; color:#666;">Episode 1</p>
+                    <h2 class="part-title">Part 1: “The Checklist”</h2>
                     
-                    <h2 class="part-title" style="text-align:center; border:none;">Main Reference Image</h2>
-                    
-                    <!-- SINGLE Image Upload Area -->
-                    <div class="main-image-area" id="main-image-area" onclick="uploadMainImage()">
-                        <img id="main-image-preview" style="display: none;" alt="Main Reference Image">
-                        <div class="upload-prompt" id="upload-prompt">
-                            <strong>Click here to upload the main image</strong>
-                            <span style="margin-top: 12px; font-size: 14px;">This image will be saved permanently for Episode 1</span>
+                    <div class="image-upload-area" id="img-area-1" onclick="uploadImage(1)">
+                        <img id="img-preview-1" alt="Part 1 Image">
+                        <div class="upload-placeholder" id="placeholder-1">
+                            <strong>Click to upload image for Part 1</strong><br>
+                            <span style="font-size:12px;"> (Locked after saving)</span>
                         </div>
                     </div>
                     
-                    <p style="text-align: center; color: #666; font-style: italic; max-width: 500px; margin: 0 auto;">
-                        Once uploaded, this image cannot be changed. It will remain as the main visual for this episode.
-                    </p>
+                    <p>The lab was quiet at this hour, the way Harper liked it. Golden light slanted through the tall windows. Most of the team had gone home, but Harper Quinn was still at her desk, glasses slipping down her nose as she leaned over the printed slides for the Tokyo conference.</p>
+                    
+                    <p class="internal-thought">*Better. That’s better. Can’t stand in front of two hundred people with a sloppy transition.*</p>
+                    
+                    <p>She set the pen down and leaned back. The white button-up blouse clung softly to the curve of her waist and the full swell of her chest before she absently smoothed it back into place.</p>
                 </div>
                 <div class="page-number">1 / 5</div>
             </div>
 
-            <!-- Page 2: Part 1 -->
+            <!-- PAGE 2: Part 2 -->
             <div class="page" id="page2" style="display: none; z-index: 4;">
                 <div class="page-content">
-                    <h2 class="part-title">Part 1: “The Checklist”</h2>
-                    <p>The lab was quiet at this hour, the way Harper liked it...</p>
-                    <p class="internal-thought">*Better. That’s better...*</p>
+                    <h2 class="part-title">Part 2: “The Chaos at Home”</h2>
+                    
+                    <div class="image-upload-area" id="img-area-2" onclick="uploadImage(2)">
+                        <img id="img-preview-2" alt="Part 2 Image">
+                        <div class="upload-placeholder" id="placeholder-2">
+                            <strong>Click to upload image for Part 2</strong><br>
+                            <span style="font-size:12px;"> (Locked after saving)</span>
+                        </div>
+                    </div>
+                    
+                    <p>Harper’s key turned in the lock with a familiar click. The smell of garlic and lemon chicken hit her immediately. Cooper came barreling down the hallway.</p>
+                    
+                    <p>“Harper’s home!” her mom called from the kitchen.</p>
+                    
+                    <p>The kitchen was warm and lived-in. Haley, Matt, and their dad were already there. The table was set for five.</p>
+                    
+                    <p class="internal-thought">*They’re right. I know they’re right. I am the serious one. The responsible one.*</p>
+                    
+                    <p>Halfway through dinner, Haley grinned. “So… you ready to have an actual life in Tokyo or are you going to spend the whole time in your hotel room like a little work goblin?”</p>
                 </div>
                 <div class="page-number">2 / 5</div>
             </div>
 
-            <!-- Page 3: Part 2 -->
+            <!-- PAGE 3: Part 3 -->
             <div class="page" id="page3" style="display: none; z-index: 3;">
                 <div class="page-content">
-                    <h2 class="part-title">Part 2: “The Chaos at Home”</h2>
-                    <p>Harper’s key turned in the lock with a familiar click...</p>
+                    <h2 class="part-title">Part 3: “The Brief”</h2>
+                    
+                    <div class="image-upload-area" id="img-area-3" onclick="uploadImage(3)">
+                        <img id="img-preview-3" alt="Part 3 Image">
+                        <div class="upload-placeholder" id="placeholder-3">
+                            <strong>Click to upload image for Part 3</strong><br>
+                            <span style="font-size:12px;"> (Locked after saving)</span>
+                        </div>
+                    </div>
+                    
+                    <p>The camera found him from a distance. Kane Hale moved through the pulsing nightlife district with quiet certainty.</p>
+                    
+                    <p>He stepped inside the high-end strip club without hesitation. The interior hit like a fever dream — dim red and purple lights, bass thumping through the floor.</p>
+                    
+                    <p>He cut straight through the crowd until he slipped through a staff-only door into the kitchen, then into the secure room at the back.</p>
+                    
+                    <p>Four men stood around a long black table. Kane stopped at the head.</p>
+                    
+                    <p>“Contract 47-Alpha. We go in quiet. We take the regional commander alive. No screams. No bodies left identifiable.”</p>
                 </div>
                 <div class="page-number">3 / 5</div>
             </div>
 
-            <!-- Page 4: Part 3 -->
+            <!-- PAGE 4: End -->
             <div class="page" id="page4" style="display: none; z-index: 2;">
-                <div class="page-content">
-                    <h2 class="part-title">Part 3: “The Brief”</h2>
-                    <p>The camera found him from a distance...</p>
-                </div>
-                <div class="page-number">4 / 5</div>
-            </div>
-
-            <!-- Page 5: End -->
-            <div class="page" id="page5" style="display: none; z-index: 1;">
                 <div class="page-content" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;">
-                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size:36px; margin-bottom:25px;">End of Episode 1</h2>
-                    <p style="font-style:italic; max-width:460px; color:#555;">
-                        Harper Quinn heads to Tokyo tomorrow...<br><br>
-                        Kane Hale moves through shadows...<br><br>
+                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size:34px; margin-bottom:25px;">End of Episode 1</h2>
+                    <p style="font-style:italic; max-width:420px; color:#555; line-height:1.7;">
+                        Harper Quinn heads to Tokyo tomorrow with her checklists and quiet ache for something more.<br><br>
+                        Kane Hale moves through shadows with a team and a contract that demands perfection.<br><br>
                         <strong>Their worlds are about to collide.<br>Love is weird like that.</strong>
                     </p>
                 </div>
-                <div class="page-number">5 / 5</div>
+                <div class="page-number">4 / 4</div>
             </div>
 
         </div>
@@ -248,47 +251,53 @@
 
     <script>
         let currentPage = 1;
-        const totalPages = 5;
+        const totalPages = 4;
+        let currentUploadPart = null;
 
-        function loadMainImage() {
-            const savedImage = localStorage.getItem('episode1_main_image');
-            if (savedImage) {
-                const preview = document.getElementById('main-image-preview');
-                const prompt = document.getElementById('upload-prompt');
-                const area = document.getElementById('main-image-area');
-                
-                preview.src = savedImage;
-                preview.style.display = 'block';
-                prompt.style.display = 'none';
-                
-                area.style.cursor = 'default';
-                area.onclick = null;
+        function loadSavedImages() {
+            for (let i = 1; i <= 3; i++) {
+                const saved = localStorage.getItem('part' + i + '_image');
+                if (saved) {
+                    const preview = document.getElementById('img-preview-' + i);
+                    const placeholder = document.getElementById('placeholder-' + i);
+                    const area = document.getElementById('img-area-' + i);
+                    
+                    if (preview && placeholder && area) {
+                        preview.src = saved;
+                        preview.style.display = 'block';
+                        placeholder.style.display = 'none';
+                        area.style.cursor = 'default';
+                        area.onclick = null;
+                    }
+                }
             }
         }
 
-        function uploadMainImage() {
+        function uploadImage(partNumber) {
+            currentUploadPart = partNumber;
             document.getElementById('imageInput').click();
         }
 
         function handleImageUpload(event) {
             const file = event.target.files[0];
-            if (!file) return;
+            if (!file || !currentUploadPart) return;
 
             const reader = new FileReader();
             reader.onload = function(e) {
-                const base64Image = e.target.result;
-                localStorage.setItem('episode1_main_image', base64Image);
+                const base64 = e.target.result;
+                localStorage.setItem('part' + currentUploadPart + '_image', base64);
                 
-                const preview = document.getElementById('main-image-preview');
-                const prompt = document.getElementById('upload-prompt');
-                const area = document.getElementById('main-image-area');
+                const preview = document.getElementById('img-preview-' + currentUploadPart);
+                const placeholder = document.getElementById('placeholder-' + currentUploadPart);
+                const area = document.getElementById('img-area-' + currentUploadPart);
                 
-                preview.src = base64Image;
-                preview.style.display = 'block';
-                prompt.style.display = 'none';
-                
-                area.style.cursor = 'default';
-                area.onclick = null;
+                if (preview && placeholder && area) {
+                    preview.src = base64;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                    area.style.cursor = 'default';
+                    area.onclick = null;
+                }
             };
             reader.readAsDataURL(file);
             event.target.value = '';
@@ -345,7 +354,7 @@
 
         function init() {
             showPage(1);
-            loadMainImage();
+            loadSavedImages();
         }
 
         window.onload = init;
